@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body { 
+	font-family:"微软雅黑"; 
+	font-size:14px; 
+}
+
+#container {
+	margin:0 auto; 
+	width:900px; 
+}
+#header { 
+	height:100px;
+	background:#6cf; 
+	margin-bottom:5px;
+}
+#main{ 
+	height:500px;
+	/*background:#cff; */
+	margin-bottom:5px;
+}
+#aside { 
+	float:left; 
+	width:200px; 
+	height:500px; 
+	background:#6cf;
+}
+#content{ 
+	float:right; 
+	width:695px; 
+	height:500px; 
+	background:#cff;
+}
+#footer { 
+	height:60px; 
+	background:#6cf;
+}

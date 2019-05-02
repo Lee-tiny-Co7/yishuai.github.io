@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		padding: 0;
+		margin:0;
+	}
+	#nav{
+		margin: 0 auto;
+		width: 300px;
+		font-size: 0;
+	}
+	a{  /*否则无法设置高度宽度等*/
+		display: inline-block;
+		/*盒子的样式*/
+		width: 80px;
+		height: 30px;
+		border-bottom: 1px solid #ccc;
+		/*超链接文本*/
+		font-size: 14px;
+		text-align: center;
+		line-height: 30px;
+		text-decoration: none;
+	}
+	a:hover{
+		color: white;
+		background-color: #ccc;
+		border: 1px solid;
+		border-left-color: orange;
+		border-top-color: orange;
+		border-right-color: orange;
+	}
+	/*父元素定义font-size:0 去掉行内块元素水平方向空白；子元素定义vertical-align 属性去掉行内块元素垂直方向空白*/
+	</style>
+</head>
+<body>
+<div id="nav">
+	<a href="#">链接1</a>
+	<a href="#">链接2</a>
+	<a href="#">链接3</a>
+</div>
+</body>
+</html>
