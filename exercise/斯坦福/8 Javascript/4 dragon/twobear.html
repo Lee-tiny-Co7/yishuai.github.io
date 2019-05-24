@@ -1,0 +1,49 @@
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+
+      button {
+        font-size: 24pt;
+      }
+
+      img {
+        height: 100px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="present-container"></div>
+    
+  <script>
+      const OUTSIDE_IMAGE_URL = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1083533/gift-icon.png';
+      const PRESENT_ONE = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1083533/pooh.gif';
+      const PRESENT_TWO = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1083533/piglet.gif';
+
+      class Present {
+        constructor(containerElement, giftSrc) {
+          this.containerElement = containerElement;
+          this.giftSrc = giftSrc;
+
+          const image = document.createElement('img');
+          image.src = OUTSIDE_IMAGE_URL;
+      		image.addEventListener('click', event => {
+            const image = event.currentTarget;
+            image.src = this.giftSrc;
+          });
+          this.containerElement.append(image);
+        }
+      }
+
+      const container = document.querySelector('#present-container');
+      const p1 = new Present(container, PRESENT_ONE);
+      const p2 = new Present(container, PRESENT_TWO);
+  </script>
+
+</body>
+</html>
