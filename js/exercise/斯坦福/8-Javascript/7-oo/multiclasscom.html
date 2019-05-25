@@ -4,26 +4,22 @@
     <meta charset="UTF-8" />
     <title>Two classes: App and PresentContainer</title>
     <link rel="stylesheet" href="styles/index.css">
-    <script src="scripts/present-sources.js" defer></script>
-    <script src="scripts/present.js" defer></script>
-    <script src="scripts/app.js" defer></script>
-    <script src="scripts/main.js" defer></script>
-  </head>
-  <style>
-    body {
-      font-family: monospace;
-      text-align: center;
-    }
+    <style>
+      body {
+        font-family: monospace;
+        text-align: center;
+      }
 
-    img {
-      height: 100px;
-    }
-  </style>
+      img {
+        height: 100px;
+      }
+    </style>
+  </head>
+
   <body>
     <h1 id="title">Click a present to open it:</h1>
     <div id="presents"></div>
   </body>
-
   <script>
 
   const PRESENT_SOURCES = [
@@ -52,6 +48,7 @@
     _openPresent(event) {
       this.image.src = this.presentSrc;
     	this.image.removeEventListener('click', this._openPresent);
+      document.dispatchEvent(new CustomEvent('present-opened'));
     }
   }
 
@@ -62,6 +59,11 @@
 
       this.presents = [];
       this._fillPresentContainer();
+
+      this._onPresentOpened = this._onPresentOpened.bind(this);
+
+      this.openedCount = 0;
+      document.addEventListener('present-opened', this._onPresentOpened);
     }
 
     _fillPresentContainer() {
@@ -70,14 +72,18 @@
         this.presents.push(present);
       }
     }
+
+    _onPresentOpened() {
+      this.openedCount++;
+      if (this.openedCount === this.presents.length) {
+        this.titleContainer.textContent = 'Enjoy your presents!';
+      }
+    }
   }
 
   const presentContainer = document.querySelector('#presents');
   const titleContainer = document.querySelector('#title');
   const app = new App(presentContainer, titleContainer);
-
-
-
 
   </script>
 </html>

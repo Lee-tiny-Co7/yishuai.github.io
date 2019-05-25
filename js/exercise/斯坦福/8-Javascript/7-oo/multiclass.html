@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Two classes: App and PresentContainer</title>
+    <style>
+      body {
+        font-family: monospace;
+        text-align: center;
+      }
+
+      img {
+        height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="title">Click a present to open it:</h1>
+    <div id="presents"></div>
+  </body>
+
+  <script>
+
+      const PRESENT_SOURCES = [
+        'https://media.giphy.com/media/27ppQUOxe7KlG/giphy.gif',
+        'https://media.giphy.com/media/LEcRaYyUptIxG/giphy.gif',
+        'https://media.giphy.com/media/3BBv1D4AFbJkY/giphy.gif',
+        'https://media.giphy.com/media/13smkcXZiTLDgc/giphy.gif',
+        'https://media.giphy.com/media/GknfGjiYhsFQk/giphy.gif'
+      ];
+
+      class Present {
+        constructor(containerElement, presentSrc) {
+          this.containerElement = containerElement;
+          this.presentSrc = presentSrc;
+
+          // Bind event listeners.
+          this._openPresent = this._openPresent.bind(this);
+
+          // Create image and append to container.
+          this.image = document.createElement('img');
+          this.image.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1083533/gift-icon.png';
+      		this.image.addEventListener('click', this._openPresent);
+          this.containerElement.append(this.image);
+        }
+
+        _openPresent(event) {
+          this.image.src = this.presentSrc;
+        	this.image.removeEventListener('click', this._openPresent);
+        }
+      }
+
+      class App {
+        constructor(presentContainer, titleContainer) {
+          this.presentContainer = presentContainer;
+          this.titleContainer = titleContainer;
+
+          this.presents = [];
+          this._fillPresentContainer();
+        }
+
+        _fillPresentContainer() {
+          for (const source of PRESENT_SOURCES) {
+            const present = new Present(this.presentContainer, source);
+            this.presents.push(present);
+          }
+        }
+      }
+
+      const presentContainer = document.querySelector('#presents');
+      const titleContainer = document.querySelector('#title');
+      const app = new App(presentContainer, titleContainer);
+
+  </script>
+</html>
