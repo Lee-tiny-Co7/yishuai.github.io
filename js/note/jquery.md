@@ -4,6 +4,8 @@
 
 Overview of jQuery. Cross-browser compatibility. The $ function object. Element selectors. Tree traversal. Node creation, insertion, modification and deletion. Getting and setting attributes, styles and class. Wrapping and unwrapping DOM raw objects. The chaining pattern. (Flanagan Chapter 19)
 
+## $变量
+
 用CSS选择器，得到一套元素，然后一次对所有元素进行操作
 
 $变量：代表jQuery，是一个函数，但也有很多属性和方法，返回一个集合。做四个事情
@@ -23,8 +25,10 @@ ID Selector (“#id”)
 Multiple Selector (“selector1, selector2, selectorN”)
 Descendant Selector (“ancestor descendant”)
 \*
+
 ```JavaScript
 var domMan = document.getElementById("hello");
+// 等价于
 var jqMan = $("#hello");
 ```
 
@@ -60,6 +64,7 @@ var ripeApples = $(".apples.ripe")		# 交集
 ```
 
 ## 元素操作
+
 1. attr：属性
 2. css：style，但不能读写stylesheet里的style，只是对元素的style
 3. addClass，removeClass：加css class
@@ -75,38 +80,31 @@ $(".elem").css("background", "yellow").attr("src", "some-url")  // etc.
 ```
 
 ## 修改内容
+
 两种方法
 1. html
 2. text
 
 如果有值，就设值，否则，返回值。
+
 ```JavaScript
 var $(".elem").html("<b>Hello world!</b>")
 var $(".elem").text("<b>Hello world!</b>")
 ```
 
 ## 移动元素
+
 1. append：加做最后child
 2. prepend：加做第一个child
 3. after：放到后面，作为兄弟姊妹
 4. before：放到前面，作为兄弟姊妹
 
-```JavaScript
-
-```
-
 也可以prependTo, prependTo, insertAfter，insertBefore，
-
-```JavaScript
-
-```
 
 ## 加删元素
 1. 加：给$送进去一个完整元素的HTML，然后插入即可。
 2. 删：remove
-```JavaScript
 
-```
 
 # 事件处理，动画
 
@@ -143,23 +141,4 @@ $("#hello_btn").click();
 
 ```JavaScript
 $("#elem").fadeOut().fadeIn()		# 先fadeout，再fadein
-```
-
-# Ajax
-
-AJAX. Asynchronous communication. Callback functions. The get and post formats. Same-origin policy. Cross-origin requests with JSONP. AJAX polling. (Flanagan Chapter 18，19)
-
-```JavaScript
-var request = new XMLHttpRequest();
-request.open("GET","data.csv");
-request.setRequestHeader("Content-Type", "text/plain");
-request.send(null)
-```
-
-## jQuery Ajax
-1. load
-2. get, post
-
-```JavaScript
-jQuery.get("debug.txt",alert);
 ```

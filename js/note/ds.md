@@ -2,13 +2,13 @@
 
 Array insertion and deletion. Array length. Sparse arrays. Multidimensional arrays.  (Flanagan Chapters 6–7)
 
-复合数据类型
+一组数。复合数据类型
 
 ## 定义
 
 可混合类型
 ```JavaScript
-var daysOfWeek = ["The Answer to Life, Universe and Everything", 42];
+let daysOfWeek = ["The Answer to Life, Universe and Everything", 42];
 ```
 
 ## 索引
@@ -16,7 +16,7 @@ var daysOfWeek = ["The Answer to Life, Universe and Everything", 42];
 从0开始，访问，读写
 
 ```JavaScript
-var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
                   "Saturday", "Sunday"];
 console.log(daysOfWeek[0]);
 daysOfWeek[0] = "Mon";
@@ -24,7 +24,7 @@ daysOfWeek[0] = "Mon";
 
 读，超出数组长度，返回 undefined.
 ```JavaScript
-var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
                   "Saturday", "Sunday"];
 console.log("The value of the 8th day is: " + daysOfWeek[7]);
 console.log(daysOfWeek.length);
@@ -32,7 +32,7 @@ console.log(daysOfWeek.length);
 
 写，超出数组长度，变成这么长，中间插undefined.
 ```JavaScript
-var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
                   "Saturday", "Sunday"];
 daysOfWeek[9] = "The extra day of the week that everyone wishes they had";
 console.log("The value of the 8th day is: " + daysOfWeek[7] + daysOfWeek[8] + daysOfWeek[9]);
@@ -44,9 +44,9 @@ console.log("The value of the 8th day is: " + daysOfWeek[7] + daysOfWeek[8] + da
 
 第一种
 ```JavaScript
-var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
                   "Saturday", "Sunday"];
-for (var i = 0; i < daysOfWeek.length; i++) {
+for (let i = 0; i < daysOfWeek.length; i++) {
 	console.log(daysOfWeek[i]);
 }
 ```
@@ -68,7 +68,7 @@ for (ent of a) {
 
 还有一种：JavaScript 1.6以后，加入了forEach函数，注意IE6等老的浏览器不支持
 ```JavaScript
-var daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
                   "Saturday", "Sunday"];
 daysOfWeek.forEach(function(x) { console.log(x) });
 ```
@@ -77,7 +77,7 @@ daysOfWeek.forEach(function(x) { console.log(x) });
 
 加减数组元素：pop，push，shift，unshift
 ```JavaScript
-var arr = [1, 2, 3];
+let arr = [1, 2, 3];
 console.log(arr.pop());
 console.log(arr);
 
@@ -93,7 +93,7 @@ console.log(arr);
 
 排序sort，翻转reverse
 ```JavaScript
-var primes = [5, 3, 7, 11, 2]
+let primes = [5, 3, 7, 11, 2]
 
 console.log("Unsorted:");
 console.log(primes);
@@ -109,15 +109,15 @@ console.log(primes);
 
 合并：concat
 ```JavaScript
-var array1 = ['a', 'b', 'c'];
-var array2 = ['d', 'e', 'f'];
+let array1 = ['a', 'b', 'c'];
+let array2 = ['d', 'e', 'f'];
 
 console.log(array1.concat(array2));
 ```
 
 拼接成字符串：join
 ```JavaScript
-var arr = [1, 2, 3]
+let arr = [1, 2, 3]
 console.log(arr.join('-'))
 ```
 
@@ -125,7 +125,7 @@ console.log(arr.join('-'))
 
 splice(startIndex, deleteCount, item1, item2, ... )
 ```JavaScript
-var months = ['Jan', 'March', 'April', 'June'];
+let months = ['Jan', 'March', 'April', 'June'];
 
 // inserts at index 1
 months.splice(1, 0, 'Feb');
@@ -145,7 +145,7 @@ console.log(months);
 提取元素，返回新数组：slice
 
 ```JavaScript
-var animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+let animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
 
 console.log(animals.slice(2));
 // expected output: Array ["camel", "duck", "elephant"]
@@ -163,9 +163,9 @@ console.log(animals.slice(1, 5));
 
 spread扩展操作符：...
 ```JavaScript
-var anArray = [1,2,3];
+let anArray = [1,2,3];
 myFunc(...anArray);
-var o = [5, ...anArray, 6];
+let o = [5, ...anArray, 6];
 ```
 
 解构分配（新方法）

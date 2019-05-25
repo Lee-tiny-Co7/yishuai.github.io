@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>dom</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(56, 58, 66); background-color: rgb(250, 250, 250); overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(94, 97, 110); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 111, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(94, 97, 110); border-color: rgb(209, 209, 210); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(209, 209, 210); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(209, 209, 210); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(0, 0, 0); background-color: rgb(234, 234, 235); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(240, 240, 240); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(0, 0, 0); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(209, 209, 210) rgb(209, 209, 210) rgb(193, 193, 194); border-image: initial; background-color: rgb(234, 234, 235); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.04); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.markdown-preview pre.editor-colors { user-select: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+.markdown-preview ul label { vertical-align: top; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+.line-number.bracket-matcher.bracket-matcher {
+  color: #383a42;
+  background-color: #e5e5e6;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #fafafa;
+  color: #383a42;
+}
+pre.editor-colors .line.cursor-line {
+  background-color: rgba(56, 58, 66, 0.05);
+}
+pre.editor-colors .invisible {
+  color: #383a42;
+}
+pre.editor-colors .cursor {
+  border-left: 2px solid #526fff;
+}
+pre.editor-colors .selection .region {
+  background-color: #e5e5e6;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #526fff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .find-result .region.region.region,
+pre.editor-colors .current-result .region.region.region {
+  border-radius: 2px;
+  background-color: rgba(82, 111, 255, 0.2);
+  transition: border-color 0.4s;
+}
+pre.editor-colors .find-result .region.region.region {
+  border: 2px solid transparent;
+}
+pre.editor-colors .current-result .region.region.region {
+  border: 2px solid #526fff;
+  transition-duration: .1s;
+}
+pre.editor-colors .gutter .line-number {
+  color: #9d9d9f;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  color: #383a42;
+  background-color: #e5e5e6;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right {
+  color: #383a42;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(255, 20, 20, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #383a42;
+}
+.syntax--comment {
+  color: #a0a1a7;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #a0a1a7;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #c18401;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #50a14f;
+}
+.syntax--keyword {
+  color: #a626a4;
+}
+.syntax--keyword.syntax--control {
+  color: #a626a4;
+}
+.syntax--keyword.syntax--operator {
+  color: #383a42;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #4078f2;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #986801;
+}
+.syntax--storage {
+  color: #a626a4;
+}
+.syntax--storage.syntax--type.syntax--annotation,
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #a626a4;
+}
+.syntax--storage.syntax--modifier.syntax--package,
+.syntax--storage.syntax--modifier.syntax--import {
+  color: #383a42;
+}
+.syntax--constant {
+  color: #986801;
+}
+.syntax--constant.syntax--variable {
+  color: #986801;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #0184bc;
+}
+.syntax--constant.syntax--numeric {
+  color: #986801;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #0184bc;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #0184bc;
+}
+.syntax--variable {
+  color: #e45649;
+}
+.syntax--variable.syntax--interpolation {
+  color: #ca1243;
+}
+.syntax--variable.syntax--parameter {
+  color: #383a42;
+}
+.syntax--string {
+  color: #50a14f;
+}
+.syntax--string > .syntax--source,
+.syntax--string .syntax--embedded {
+  color: #383a42;
+}
+.syntax--string.syntax--regexp {
+  color: #0184bc;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #c18401;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #e45649;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #a0a1a7;
+}
+.syntax--punctuation.syntax--definition.syntax--method-parameters,
+.syntax--punctuation.syntax--definition.syntax--function-parameters,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--separator,
+.syntax--punctuation.syntax--definition.syntax--seperator,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #383a42;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #4078f2;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #c18401;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #a626a4;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #ca1243;
+}
+.syntax--punctuation.syntax--section.syntax--method,
+.syntax--punctuation.syntax--section.syntax--class,
+.syntax--punctuation.syntax--section.syntax--inner-class {
+  color: #383a42;
+}
+.syntax--support.syntax--class {
+  color: #c18401;
+}
+.syntax--support.syntax--type {
+  color: #0184bc;
+}
+.syntax--support.syntax--function {
+  color: #0184bc;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #4078f2;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #4078f2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #c18401;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #4078f2;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #e45649;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #986801;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #4078f2;
+}
+.syntax--meta.syntax--class {
+  color: #c18401;
+}
+.syntax--meta.syntax--class.syntax--body {
+  color: #383a42;
+}
+.syntax--meta.syntax--method-call,
+.syntax--meta.syntax--method {
+  color: #383a42;
+}
+.syntax--meta.syntax--definition.syntax--variable {
+  color: #e45649;
+}
+.syntax--meta.syntax--link {
+  color: #986801;
+}
+.syntax--meta.syntax--require {
+  color: #4078f2;
+}
+.syntax--meta.syntax--selector {
+  color: #a626a4;
+}
+.syntax--meta.syntax--separator {
+  color: #383a42;
+}
+.syntax--meta.syntax--tag {
+  color: #383a42;
+}
+.syntax--underline {
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #383a42;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #000000 !important;
+  background-color: #f2a60d !important;
+}
+.syntax--invalid.syntax--illegal {
+  color: white !important;
+  background-color: #ff1414 !important;
+}
+.syntax--markup.syntax--bold {
+  color: #986801;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #a626a4;
+}
+.syntax--markup.syntax--deleted {
+  color: #e45649;
+}
+.syntax--markup.syntax--italic {
+  color: #a626a4;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #e45649;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #4078f2;
+}
+.syntax--markup.syntax--link {
+  color: #0184bc;
+}
+.syntax--markup.syntax--inserted {
+  color: #50a14f;
+}
+.syntax--markup.syntax--quote {
+  color: #986801;
+}
+.syntax--markup.syntax--raw {
+  color: #50a14f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--operator {
+  color: #a626a4;
+}
+.syntax--source.syntax--cpp .syntax--keyword.syntax--operator {
+  color: #a626a4;
+}
+.syntax--source.syntax--cs .syntax--keyword.syntax--operator {
+  color: #a626a4;
+}
+.syntax--source.syntax--css .syntax--property-name,
+.syntax--source.syntax--css .syntax--property-value {
+  color: #696c77;
+}
+.syntax--source.syntax--css .syntax--property-name.syntax--support,
+.syntax--source.syntax--css .syntax--property-value.syntax--support {
+  color: #383a42;
+}
+.syntax--source.syntax--elixir .syntax--source.syntax--embedded.syntax--source {
+  color: #383a42;
+}
+.syntax--source.syntax--elixir .syntax--constant.syntax--language,
+.syntax--source.syntax--elixir .syntax--constant.syntax--numeric,
+.syntax--source.syntax--elixir .syntax--constant.syntax--definition {
+  color: #4078f2;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--definition,
+.syntax--source.syntax--elixir .syntax--variable.syntax--anonymous {
+  color: #a626a4;
+}
+.syntax--source.syntax--elixir .syntax--parameter.syntax--variable.syntax--function {
+  color: #986801;
+  font-style: italic;
+}
+.syntax--source.syntax--elixir .syntax--quoted {
+  color: #50a14f;
+}
+.syntax--source.syntax--elixir .syntax--keyword.syntax--special-method,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--section,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--source.syntax--empty {
+  color: #e45649;
+}
+.syntax--source.syntax--elixir .syntax--readwrite.syntax--module .syntax--punctuation {
+  color: #e45649;
+}
+.syntax--source.syntax--elixir .syntax--regexp.syntax--section,
+.syntax--source.syntax--elixir .syntax--regexp.syntax--string {
+  color: #ca1243;
+}
+.syntax--source.syntax--elixir .syntax--separator,
+.syntax--source.syntax--elixir .syntax--keyword.syntax--operator {
+  color: #986801;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--constant {
+  color: #c18401;
+}
+.syntax--source.syntax--elixir .syntax--array,
+.syntax--source.syntax--elixir .syntax--scope,
+.syntax--source.syntax--elixir .syntax--section {
+  color: #696c77;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--link .syntax--entity {
+  color: #4078f2;
+}
+.syntax--source.syntax--go .syntax--storage.syntax--type.syntax--string {
+  color: #a626a4;
+}
+.syntax--source.syntax--ini .syntax--keyword.syntax--other.syntax--definition.syntax--ini {
+  color: #e45649;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #c18401;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #c18401;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator.syntax--instanceof {
+  color: #a626a4;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair {
+  color: #e45649;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair > .syntax--punctuation {
+  color: #383a42;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator {
+  color: #0184bc;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--delete,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--in,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--of,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--instanceof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--typeof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
+  color: #a626a4;
+}
+.syntax--source.syntax--ts .syntax--keyword.syntax--operator {
+  color: #0184bc;
+}
+.syntax--source.syntax--flow .syntax--keyword.syntax--operator {
+  color: #0184bc;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+  color: #e45649;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation.syntax--string {
+  color: #e45649;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+  color: #50a14f;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--constant.syntax--language.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--constant.syntax--language.syntax--json {
+  color: #0184bc;
+}
+.syntax--ng.syntax--interpolation {
+  color: #e45649;
+}
+.syntax--ng.syntax--interpolation.syntax--begin,
+.syntax--ng.syntax--interpolation.syntax--end {
+  color: #4078f2;
+}
+.syntax--ng.syntax--interpolation .syntax--function {
+  color: #e45649;
+}
+.syntax--ng.syntax--interpolation .syntax--function.syntax--begin,
+.syntax--ng.syntax--interpolation .syntax--function.syntax--end {
+  color: #4078f2;
+}
+.syntax--ng.syntax--interpolation .syntax--bool {
+  color: #986801;
+}
+.syntax--ng.syntax--interpolation .syntax--bracket {
+  color: #383a42;
+}
+.syntax--ng.syntax--pipe,
+.syntax--ng.syntax--operator {
+  color: #383a42;
+}
+.syntax--ng.syntax--tag {
+  color: #0184bc;
+}
+.syntax--ng.syntax--attribute-with-value .syntax--attribute-name {
+  color: #c18401;
+}
+.syntax--ng.syntax--attribute-with-value .syntax--string {
+  color: #a626a4;
+}
+.syntax--ng.syntax--attribute-with-value .syntax--string.syntax--begin,
+.syntax--ng.syntax--attribute-with-value .syntax--string.syntax--end {
+  color: #383a42;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+  color: inherit;
+}
+.syntax--source.syntax--php .syntax--class.syntax--bracket {
+  color: #383a42;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical.syntax--python {
+  color: #a626a4;
+}
+.syntax--source.syntax--python .syntax--variable.syntax--parameter {
+  color: #986801;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="dom-">DOM（文档对象模型）</h1>
+<p>Tags. Document structure. Elements. Text, forms, images, blocks and frames. Selectors. Cascading and inheritence. Text and color tyles. The box model. Layout. The DOM as an document API. Browser information. The setTimer and setTimeout. Element lookup. Tree traversal. Attribute getting and setting. Creating and deleting nodes. Events. (Flanagan Chapters 15 and 16)</p>
+<p>常用HTML元素：h, p, div, span, form, input, ul, ol, li, a, em, strong, tr</p>
+<p>每个元素是一个Javascript对象。有父、子、兄弟姊妹</p>
+<p>第一级：Node
+第二级：Document，CharacterData，Element，Attr
+第三极：HTMLDocument，Text，Comments，HTMLElement
+第四级：HTMLHeadElement，HTMLBodyElement，HTMLTitleElement，HTMLImageElement ...</p>
+<pre class="editor-colors lang-html"><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">div</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;<span class="syntax--entity syntax--name syntax--tag">h1</span>&gt;Header&lt;/<span class="syntax--entity syntax--name syntax--tag">h1</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;<span class="syntax--entity syntax--name syntax--tag">ul</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">        </span>&lt;<span class="syntax--entity syntax--name syntax--tag">li</span>&gt;Point 1&lt;/<span class="syntax--entity syntax--name syntax--tag">li</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">        </span>&lt;<span class="syntax--entity syntax--name syntax--tag">li</span>&gt;Point 2&lt;/<span class="syntax--entity syntax--name syntax--tag">li</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">        </span>&lt;<span class="syntax--entity syntax--name syntax--tag">li</span>&gt;Point 3&lt;/<span class="syntax--entity syntax--name syntax--tag">li</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;/<span class="syntax--entity syntax--name syntax--tag">ul</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html">&lt;/<span class="syntax--entity syntax--name syntax--tag">div</span>&gt;</span></div></pre>
+<h2 id="document-">document对象</h2>
+<p>getElementById，如果没有，返回null</p>
+<pre class="editor-colors lang-html"><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">p</span> <span class="syntax--entity syntax--other syntax--attribute-name">id</span>="<span class="syntax--string syntax--html">hello</span>"&gt;Hello world!&lt;/<span class="syntax--entity syntax--name syntax--tag">p</span>&gt;</span></div></pre>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> elem <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<p>还可以document.getElementsByClassName，document.getElementsByTagName
+返回一个list，这个list是live的，会自动更新。</p>
+<p>也可以querySelector，querySelectorAll</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">let</span> element <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'#button'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">let</span> element <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelectorAll</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'#button'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">let</span> elementList <span class="syntax--keyword syntax--operator syntax--js">=</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">    </span><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelectorAll</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'.quote, .comment'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span>    #或，不是与</span></div></pre>
+<p>其它方法不用了：如</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> goldenGateImg <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">images</span><span class="syntax--punctuation syntax--definition syntax--array syntax--begin syntax--bracket syntax--square">[</span><span class="syntax--string syntax--quoted">"golden_gate"</span><span class="syntax--punctuation syntax--definition syntax--array syntax--end syntax--bracket syntax--square">]</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h2 id="-">查找元素</h2>
+<p>在DOM Tree上来回，找到想要的元素</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">parentNode</span></span></div><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">childNodes</span></span></div><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">firstChild</span></span></div><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">lastChild</span></span></div><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">nextSibling</span></span></div><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">previousSibling</span></span></div></pre>
+<h2 id="-">加删元素</h2>
+<p>document.createElement(tag string)
+element.appendChild(element);
+element.remove();
+element.innerHTML = '';        # 移走元素下面的所有子元素</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">openPresent</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">event</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--storage syntax--modifier">const</span> newHeader <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">createElement</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'h1'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>newHeader<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">textContent</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">'Hooray!'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--storage syntax--modifier">const</span> newImage <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">createElement</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'img'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>newImage<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">src</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">'https://media.giphy.com/media/27ppQUOxe7KlG/giphy.gif'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--storage syntax--modifier">const</span> container <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'#container'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>container<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">innerHTML</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">''</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>container<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">appendChild</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>newHeader<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>container<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">appendChild</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>newImage<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> image <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'img'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'click'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> openPresent<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h2 id="-">访问元素信息</h2>
+<p>自定义数据属性，然后用Javascript访问
+也可以在CSS里写</p>
+<pre class="editor-colors lang-html"><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">div</span> <span class="syntax--entity syntax--other syntax--attribute-name">id</span>="<span class="syntax--string syntax--html">1</span>" <span class="syntax--entity syntax--other syntax--attribute-name">data-index</span>="<span class="syntax--string syntax--html">0</span>"&gt;&lt;<span class="syntax--entity syntax--name syntax--tag">img</span> <span class="syntax--entity syntax--other syntax--attribute-name">src</span>="<span class="syntax--string syntax--html">x.png</span>"&gt;&lt;/<span class="syntax--entity syntax--name syntax--tag">div</span>&gt;</span></div></pre>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> space <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'1'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> index <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--entity syntax--name syntax--function">parseInt</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>space<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">dataset</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">index</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span>        <span class="syntax--comment syntax--line">// "0"</span></span></div></pre>
+<h2 id="-">修改元素信息</h2>
+<p>修改元素属性，如src，html，文本</p>
+<p>element.innerHTML
+element.textContent
+element.classList
+element.id
+element.src</p>
+<p>注意别用element.innerHTML = '</p><h1>Hooray!</h1>';有安全风险<p></p>
+<h3 id="-">换图片</h3>
+<pre class="editor-colors lang-html"><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">img</span> <span class="syntax--entity syntax--other syntax--attribute-name">src</span>="<span class="syntax--string syntax--html">puppy.png</span>" /&gt;</span></div></pre>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> goldenGateImg <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"golden_gate"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"The URL of this image is: "</span> <span class="syntax--keyword syntax--operator syntax--js">+</span> goldenGateImg<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">src</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">goldenGateImg<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">src</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">"../img/golden_gate.jpg"</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> image <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'img'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">src</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">'new-picture.png'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h3 id="-">修改标题</h3>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> title <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'h1'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">title<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">textContent</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">'Hooray!'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h3 id="-class-style">修改Class来修改Style</h3>
+<p>加删classes得通过classList</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> image <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'img'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--comment syntax--line">// Adds a CSS class called "active".</span></span></div><div class="line"><span class="syntax--source syntax--js">image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">classList</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">add</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'active'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--comment syntax--line">// Removes a CSS class called "hidden".</span></span></div><div class="line"><span class="syntax--source syntax--js">image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">classList</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">remove</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'hidden'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h3 id="-style">直接修改Style</h3>
+<p>一般通过改classList，来改style，但当需要用Javascript值来改style时，可以这样。</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> modalView <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'#modal-view'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">modalView<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">style</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">top</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">window</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">pageYOffset</span> <span class="syntax--keyword syntax--operator syntax--js">+</span> <span class="syntax--string syntax--quoted">'px'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">style</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">transform</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">'translateX('</span> <span class="syntax--keyword syntax--operator syntax--js">+</span> delta <span class="syntax--keyword syntax--operator syntax--js">+</span> <span class="syntax--string syntax--quoted">'px)'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h3 id="-">隐藏和显示</h3>
+<p>修改display属性为none，这样看不见，但还是在load的。</p>
+<pre class="editor-colors lang-html"><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">html</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">  </span>&lt;<span class="syntax--entity syntax--name syntax--tag">head</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;<span class="syntax--entity syntax--name syntax--tag">meta</span> <span class="syntax--entity syntax--other syntax--attribute-name">charset</span>="<span class="syntax--string syntax--html">utf-8</span>"&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;<span class="syntax--entity syntax--name syntax--tag">title</span>&gt;JS Example&lt;/<span class="syntax--entity syntax--name syntax--tag">title</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">        </span>&lt;<span class="syntax--entity syntax--name syntax--tag">style</span> <span class="syntax--entity syntax--other syntax--attribute-name">media</span>="<span class="syntax--string syntax--html">screen</span>"&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">            </span><span class="syntax--source syntax--css"><span class="syntax--entity syntax--name syntax--tag">body</span> {</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">                </span><span class="syntax--support syntax--property-name">font-family</span>: <span class="syntax--support syntax--constant syntax--property-value syntax--css">monospace</span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">                </span><span class="syntax--support syntax--property-name">text-align</span>: <span class="syntax--support syntax--constant syntax--property-value syntax--css">center</span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">                </span>}</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">            </span><span class="syntax--entity syntax--name syntax--tag">img</span> {</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">                </span><span class="syntax--support syntax--property-name">height</span>: <span class="syntax--numeric syntax--constant">200<span class="syntax--keyword syntax--other syntax--unit">px</span></span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">                </span>}</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">            </span>.<span class="syntax--entity syntax--other syntax--attribute-name syntax--class">hidden</span> {</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">                </span><span class="syntax--support syntax--property-name">display</span>: <span class="syntax--support syntax--constant syntax--property-value syntax--css">none</span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">                </span>}</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">        </span></span>&lt;/<span class="syntax--entity syntax--name syntax--tag">style</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">  </span>&lt;/<span class="syntax--entity syntax--name syntax--tag">head</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">  </span>&lt;<span class="syntax--entity syntax--name syntax--tag">body</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;<span class="syntax--entity syntax--name syntax--tag">div</span> <span class="syntax--entity syntax--other syntax--attribute-name">id</span>="<span class="syntax--string syntax--html">gift-outside</span>"&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">      </span>&lt;<span class="syntax--entity syntax--name syntax--tag">h1</span>&gt;Click for a present:&lt;/<span class="syntax--entity syntax--name syntax--tag">h1</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">      </span>&lt;<span class="syntax--entity syntax--name syntax--tag">img</span> <span class="syntax--entity syntax--other syntax--attribute-name">src</span>="<span class="syntax--string syntax--html">https://s3-us-west-2.amazonaws.com/s.cdpn.io/1083533/gift-icon.png</span>" /&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;/<span class="syntax--entity syntax--name syntax--tag">div</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;<span class="syntax--entity syntax--name syntax--tag">div</span> <span class="syntax--entity syntax--other syntax--attribute-name">id</span>="<span class="syntax--string syntax--html">gift-inside</span>" <span class="syntax--entity syntax--other syntax--attribute-name">class</span>="<span class="syntax--string syntax--html">hidden</span>"&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">      </span>&lt;<span class="syntax--entity syntax--name syntax--tag">h1</span>&gt;Hooray!&lt;/<span class="syntax--entity syntax--name syntax--tag">h1</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">      </span>&lt;<span class="syntax--entity syntax--name syntax--tag">img</span> <span class="syntax--entity syntax--other syntax--attribute-name">src</span>="<span class="syntax--string syntax--html">https://media.giphy.com/media/27ppQUOxe7KlG/giphy.gif</span>" /&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span>&lt;/<span class="syntax--entity syntax--name syntax--tag">div</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">  </span>&lt;/<span class="syntax--entity syntax--name syntax--tag">body</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html">&lt;/<span class="syntax--entity syntax--name syntax--tag">html</span>&gt;</span></div></pre>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">openPresent</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">event</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--storage syntax--modifier">const</span> image <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">event</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">currentTarget</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">removeEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'click'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> openPresent<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--storage syntax--modifier">const</span> giftOutside <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'#gift-outside'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--storage syntax--modifier">const</span> giftInside <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'#gift-inside'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>giftOutside<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">classList</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">add</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'hidden'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>giftInside<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">classList</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">remove</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'hidden'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> image <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'#gift-outside img'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'click'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> openPresent<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<p>更多例子：
+<a href="https://codepen.io/bee-arcade/pen/8242bfd471e118e820422ce715c6ede5">https://codepen.io/bee-arcade/pen/8242bfd471e118e820422ce715c6ede5</a>
+<a href="https://codepen.io/bee-arcade/pen/db0b3223fd87ed06051aa1f2abf5ec63">https://codepen.io/bee-arcade/pen/db0b3223fd87ed06051aa1f2abf5ec63</a>
+<a href="https://codepen.io/bee-arcade/pen/6b8956cb0acaaf72f9927094b87d8577">https://codepen.io/bee-arcade/pen/6b8956cb0acaaf72f9927094b87d8577</a>
+<a href="https://codepen.io/bee-arcade/pen/5b1885ca9e14d88fc5ef078f07fb1a00">https://codepen.io/bee-arcade/pen/5b1885ca9e14d88fc5ef078f07fb1a00</a></p>
+<h2 id="event-listener-">Event Listener（事件侦听）</h2>
+<p>等着事件发生（比如鼠标点击）</p>
+<h3 id="-">登记</h3>
+<p>用addEventListener，登记event
+第一个参数：event名字
+第二个参数：回调函数，负责处理事件的函数
+第三个参数：是否有“capture”属性，如果有，就会在正常的事件链之前执行这个回调函数。一般都写成false。</p>
+<p>可以写多个event listener，按顺序来执行。</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> helloWorldFn <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--storage syntax--type syntax--function">function</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span> <span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello world!"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello_world_btn"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"click"</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> helloWorldFn<span class="syntax--meta syntax--delimiter syntax--comma">,</span> <span class="syntax--constant syntax--language syntax--boolean syntax--false">false</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span></span></div></pre>
+<p>直接给元素Event处理属性赋值。但这种用得少了，因为和addEventListener，removeEventListener不能一起工作。</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> helloWorldFn <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--storage syntax--type syntax--function">function</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span> <span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello world!"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello_world_btn"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">onclick</span> <span class="syntax--keyword syntax--operator syntax--js">=</span>  helloWorldFn<span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h3 id="-">解除</h3>
+<p>removeElementListener解除event</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> helloWorldFn <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--storage syntax--type syntax--function">function</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span> <span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello world!"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello_world_btn"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"click"</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> helloWorldFn<span class="syntax--meta syntax--delimiter syntax--comma">,</span> <span class="syntax--constant syntax--language syntax--boolean syntax--false">false</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello_world_btn"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">removeEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"click"</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> helloWorldFn<span class="syntax--meta syntax--delimiter syntax--comma">,</span> <span class="syntax--constant syntax--language syntax--boolean syntax--false">false</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span></span></div></pre>
+<h3 id="-">键盘事件</h3>
+<p>keydown：任何键被按下。如果你不松，会一直fire
+keypress：字符键（字母，数字）被按下。如果你不松，会一直fire
+keyup：停止按一个键</p>
+<p>event是KeyboardEvent类型，有一个key属性，存着按的键值。
+各种键值：<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values">https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values</a>
+比如："Escape"， "ArrowRight"， "ArrowLeft"</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">onKeyUp</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">event</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">        </span><span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'onKeyUp:'</span> <span class="syntax--keyword syntax--operator syntax--js">+</span> <span class="syntax--support syntax--variable syntax--dom">event</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">key</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'keyup'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> onKeyUp<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h3 id="-">鼠标和触摸屏事件</h3>
+<p>MouseEvent</p>
+<ol>
+<li>click</li>
+<li>mousedown</li>
+<li>mouseup</li>
+<li>mousemove：动的时候，会重复fire。电脑上行。手机上不行。</li>
+</ol>
+<p>返回坐标</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">onClick</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">event</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">        </span><span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'x'</span> <span class="syntax--keyword syntax--operator syntax--js">+</span> <span class="syntax--support syntax--variable syntax--dom">event</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">clientX</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">        </span><span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'y'</span> <span class="syntax--keyword syntax--operator syntax--js">+</span> <span class="syntax--support syntax--variable syntax--dom">event</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">clientY</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'click'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> onClick<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<p>TouchEvent</p>
+<ol>
+<li>touchstart</li>
+<li>touchend</li>
+<li>touchmove：仅手机上工作。电脑上不行。</li>
+<li>touchcancel：浏览器不确定发生了什么时，会fire</li>
+</ol>
+<p>PointerEvent
+在鼠标和触摸屏上都可用
+参考：<a href="https://developers.google.com/web/updates/2016/10/pointer-events">https://developers.google.com/web/updates/2016/10/pointer-events</a>
+继承了MouseEvent，因此也有坐标</p>
+<ol>
+<li>pointerdown</li>
+<li>pointerup</li>
+<li>pointermove：在手机，电脑上都可以</li>
+<li>pointercancel</li>
+</ol>
+<p>但有些浏览器不支持
+<a href="https://caniuse.com/#feat=pointer">https://caniuse.com/#feat=pointer</a>
+Polyfill实现：<a href="https://github.com/jquery/PEP">https://github.com/jquery/PEP</a></p>
+<pre class="editor-colors lang-html"><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">script</span> <span class="syntax--entity syntax--other syntax--attribute-name">src</span>="<span class="syntax--string syntax--html">https://code.jquery.com/pep/0.4.1/pep.js</span>"&gt;&lt;/<span class="syntax--entity syntax--name syntax--tag">script</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">section</span> <span class="syntax--entity syntax--other syntax--attribute-name">touch-action</span>="<span class="syntax--string syntax--html">none</span>"&gt;&lt;/<span class="syntax--entity syntax--name syntax--tag">section</span>&gt;</span></div></pre>
+<h2 id="-">事件处理函数</h2>
+<h3 id="-">参数</h3>
+<p>当回调函数被调用，会得到一个参数对象event，里面有发生的这个event的各种信息，包括</p>
+<ol>
+<li>类型（type），如鼠标，键盘，页面加载；</li>
+<li>针对的元素（target），比如textbox</li>
+</ol>
+<p>target是引发事件的对象（比如子元素），currentTarget是当前event绑定的对象（比如父元素）。</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> helloWorldFn <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--storage syntax--type syntax--function">function</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">e</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span> <span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>e<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"hello_world_btn"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">onclick</span> <span class="syntax--keyword syntax--operator syntax--js">=</span>  helloWorldFn<span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">openPresent</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">event</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--storage syntax--modifier">const</span> image <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">event</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">currentTarget</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span>     # 原来的event handler绑定的元素</span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">src</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">'https://media.giphy.com/media/27ppQUOxe7KlG/giphy.gif'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">removeEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'click'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> openPresent<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> image <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'img'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">image<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'click'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> openPresent<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h3 id="-">调用顺序</h3>
+<p>指定的回调函数，会在默认Action（比如submit）之前调用。有两种跳过这些默认的方法：</p>
+<ol>
+<li><p>返回的事件对象有preventDefault方法可以调用</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> preventDefaultFn <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--storage syntax--type syntax--function">function</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">e</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span> e<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">preventDefault</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"disabled_link"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"click"</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> preventDefaultFn<span class="syntax--meta syntax--delimiter syntax--comma">,</span> <span class="syntax--constant syntax--language syntax--boolean syntax--false">false</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+</li>
+<li><p>如果回调函数返回false，也自动取消默认动作</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> preventDefaultFn <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--storage syntax--type syntax--function">function</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span> <span class="syntax--keyword syntax--control">return</span> <span class="syntax--constant syntax--language syntax--boolean syntax--false">false</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"disabled_link"</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">"click"</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> preventDefaultFn<span class="syntax--meta syntax--delimiter syntax--comma">,</span> <span class="syntax--constant syntax--language syntax--boolean syntax--false">false</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+</li>
+</ol>
+<p>三个阶段的调用机制：</p>
+<ol>
+<li><p>Capture阶段，从外往里，碰到capture为true的event，就执行</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js">reset<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'click'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> onResetClick<span class="syntax--meta syntax--delimiter syntax--comma">,</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span><span class="syntax--variable syntax--other syntax--object syntax--property">capture</span><span class="syntax--keyword syntax--operator syntax--js">:</span> <span class="syntax--constant syntax--language syntax--boolean syntax--true">true</span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+</li>
+<li><p>冒泡（bubble）阶段，从外往里，沿着DOM Tree向上传播，一路执行bubbles=true的监听函数。这个叫Event bubbling</p>
+</li>
+</ol>
+<p>可以用event.stopPropagation()中断这个传播。</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">onInnerClick</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">event</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>inner<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">classList</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">add</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'selected'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--support syntax--variable syntax--dom">console</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">log</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'Inner clicked!'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--support syntax--variable syntax--dom">event</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">stopPropagation</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> inner <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">querySelector</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'#inner'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">inner<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">addEventListener</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'click'</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> onInnerClick<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<h3 id="-">指针捕获</h3>
+<p>允许一个特定的指针事件(PointerEvent) 事件从一个事件触发时候的目标重定位到另一个目标上。这个功能可以确保一个元素可以持续的接收到一个pointer事件，即使这个事件的触发点已经移出了这个元素（比如，在滚动的时候）。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/setPointerCapture">https://developer.mozilla.org/zh-CN/docs/Web/API/Element/setPointerCapture</a></p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">beginSliding</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">e</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>slider<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">onpointermove</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> slide<span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>slider<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">setPointerCapture</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>e<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">pointerId</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">stopSliding</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">e</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>slider<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">onpointermove</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--constant syntax--language syntax--null">null</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>slider<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">releasePointerCapture</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>e<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">pointerId</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">slide</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">e</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>slider<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">style</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">transform</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted syntax--template">`translate(<span class="syntax--embedded syntax--source"><span class="syntax--punctuation syntax--section syntax--embedded">${</span>e<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">clientX</span> <span class="syntax--keyword syntax--operator syntax--js">-</span> <span class="syntax--constant syntax--numeric">70</span><span class="syntax--punctuation syntax--section syntax--embedded">}</span></span>px)`</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--modifier">const</span> slider <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'slider'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js">slider<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">onpointerdown</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> beginSliding<span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">slider<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">onpointerup</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> stopSliding<span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre>
+<pre class="editor-colors lang-html"><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">style</span>&gt;</span></div><div class="line"><span class="syntax--source syntax--html"><span class="leading-whitespace">    </span><span class="syntax--source syntax--css"><span class="syntax--entity syntax--name syntax--tag">div</span> {</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">      </span><span class="syntax--support syntax--property-name">width</span>: <span class="syntax--numeric syntax--constant">140<span class="syntax--keyword syntax--other syntax--unit">px</span></span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">      </span><span class="syntax--support syntax--property-name">height</span>: <span class="syntax--numeric syntax--constant">50<span class="syntax--keyword syntax--other syntax--unit">px</span></span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">      </span><span class="syntax--support syntax--property-name">display</span>: <span class="syntax--support syntax--constant syntax--property-value syntax--css">flex</span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">      </span><span class="syntax--support syntax--property-name">align-items</span>: <span class="syntax--support syntax--constant syntax--property-value syntax--css">center</span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">      </span><span class="syntax--support syntax--property-name">justify-content</span>: <span class="syntax--support syntax--constant syntax--property-value syntax--css">center</span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">      </span><span class="syntax--support syntax--property-name">background</span>: <span class="syntax--constant syntax--other syntax--color"><span class="syntax--punctuation syntax--definition syntax--constant syntax--css">#</span>fbe</span>;</span></span></div><div class="line"><span class="syntax--source syntax--html"><span class="syntax--source syntax--css"><span class="leading-whitespace">    </span>}</span></span></div><div class="line"><span class="syntax--source syntax--html">&lt;/<span class="syntax--entity syntax--name syntax--tag">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--html">&lt;<span class="syntax--entity syntax--name syntax--tag">div</span> <span class="syntax--entity syntax--other syntax--attribute-name">id</span>="<span class="syntax--string syntax--html">slider</span>"&gt;SLIDE ME&lt;/<span class="syntax--entity syntax--name syntax--tag">div</span>&gt;</span></div></pre>
+<h2 id="-">请求动画帧</h2>
+<p>window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行</p>
+<pre class="editor-colors lang-JavaScript"><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> start <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--constant syntax--language syntax--null">null</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type">var</span> element <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--support syntax--variable syntax--dom">document</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">getElementById</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--string syntax--quoted">'SomeElementYouWantToAnimate'</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js">element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">style</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">position</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--string syntax--quoted">'absolute'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--storage syntax--type syntax--function">function</span> <span class="syntax--entity syntax--name syntax--function">step</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--formal-parameter syntax--identifier">timestamp</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--keyword syntax--control">if</span> <span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span><span class="syntax--keyword syntax--operator syntax--js">!</span>start<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> start <span class="syntax--keyword syntax--operator syntax--js">=</span> timestamp<span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--storage syntax--type">var</span> progress <span class="syntax--keyword syntax--operator syntax--js">=</span> timestamp <span class="syntax--keyword syntax--operator syntax--js">-</span> start<span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span>element<span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">style</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--variable syntax--other syntax--object syntax--property syntax--unquoted">left</span> <span class="syntax--keyword syntax--operator syntax--js">=</span> <span class="syntax--meta syntax--class">Math</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">min</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>progress <span class="syntax--keyword syntax--operator syntax--js">/</span> <span class="syntax--constant syntax--numeric">10</span><span class="syntax--meta syntax--delimiter syntax--comma">,</span> <span class="syntax--constant syntax--numeric">200</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--keyword syntax--operator syntax--js">+</span> <span class="syntax--string syntax--quoted">'px'</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--keyword syntax--control">if</span> <span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>progress <span class="syntax--keyword syntax--operator syntax--js">&lt;</span> <span class="syntax--constant syntax--numeric">2000</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span> <span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--begin syntax--bracket syntax--curly">{</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">    </span><span class="syntax--support syntax--variable syntax--dom">window</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">requestAnimationFrame</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>step<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="leading-whitespace">  </span><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--punctuation syntax--definition syntax--function syntax--body syntax--end syntax--bracket syntax--curly">}</span></span></div><div class="line"></div><div class="line"><span class="syntax--source syntax--js"><span class="syntax--support syntax--variable syntax--dom">window</span><span class="syntax--meta syntax--delimiter syntax--period">.</span><span class="syntax--entity syntax--name syntax--function">requestAnimationFrame</span><span class="syntax--punctuation syntax--definition syntax--parameters syntax--begin syntax--bracket syntax--round">(</span>step<span class="syntax--punctuation syntax--definition syntax--parameters syntax--end syntax--bracket syntax--round">)</span><span class="syntax--punctuation syntax--terminator syntax--statement syntax--semicolon">;</span></span></div></pre></body>
+</html>

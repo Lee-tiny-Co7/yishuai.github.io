@@ -1,30 +1,20 @@
 # 函数
 
-Function declaration and invocation syntax. Anonymous functions. Functions as data. The arguments object. Variadic functions. Optional parameters. Named parameters. Function overloading. Duck typing. (Flanagan Chapter 8)
+Function declaration and invocation syntax. Anonymous functions. Functions as data. The arguments object. Variadic functions. Optional parameters. Named parameters. Function overloading. Duck typing. (Flanagan Chapter 8)，Crockford Chapter 4
+
+## 基础
 
 函数定义也是hoisted。可以在声明前调用。所以，即使你在函数声明前调用了这个函数，也没事。
 
+
 默认返回undefined
-
-默认参数
-```JavaScript
-// 老方法
-function myFunc(a,b) {
-		a = a || 1;
-   	b = b || "Hello";
-}
-
-// 新方法
-function myFunc (a = 1, b = "Hello") {
-}
-
-```
 
 ## 定义和调用
 
 可以重用的一组代码
 函数也是一种数据
 两种定义方式
+
 ```JavaScript
 var helloFn = function() {
 	console.log("Hello!");
@@ -40,7 +30,11 @@ helloFn();
 
 ## 参数
 
+### 可选参数
+
 函数接受参数非常灵活：variadic
+
+参数个数不限
 
 送进函数参数的个数可以和定义的不同。少了，就是undefined
 ```JavaScript
@@ -60,21 +54,40 @@ var greet = function(greeting, person) {
 greet("Hail", "Stanford", "Hail");
 ```
 
+C++、Java有默认参数。Javascript需要我们手工加：先检查有没有参数没有输入，然后给默认值
+```JavaScript
+var helloWorld = function(lang) {
+	if (typeof lang === "undefined")
+		lang = "English";
+	switch(lang) {
+		case "English":
+			console.log("Hello!")
+			return;
+		case "Chinese":
+			console.log("你好!");
+			return;
+	}
+}
+
+helloWorld();
+helloWorld("Chinese")
+```
+
+### arguments
+
 多了，虽然忽略，但可以从arguments这个数组中找到，包括所有送进来的参数
+
 ```JavaScript
 // 老方法
 var greet = function(greeting, person) {
 	console.log(greeting + ", " + person + ", " + arguments[2] + "!")
 }
-
 greet("Hail", "Stanford", "Hail");
 
 // 新方法
-
 function myFunc (a,b,...theArgsArray) {
      var c = theArgsArray[0];
 }
-
 ```
 
 ```JavaScript
@@ -109,7 +122,21 @@ var sortArgs = function() {
 sortArgs(2, 5, 9);
 ```
 
-参数类型检查
+### 默认参数
+
+```JavaScript
+// 老方法
+function myFunc(a,b) {
+		a = a || 1;
+   	b = b || "Hello";
+}
+
+// 新方法
+function myFunc (a = 1, b = "Hello") {
+}
+```
+
+### 参数类型检查
 
 ```JavaScript
 var myFn = function(input) {
@@ -123,123 +150,7 @@ myFn("hi");
 myFn(42);
 ```
 
-应用广泛：示例
-```JavaScript
-console.log(Math.max(1, 2));
-console.log(Math.max(3, 4, 5));
-
-console.log(Math.min(1, 2));
-console.log(Math.min(3, 4, 5));
-```
-
-## 可选参数
-
-C++、Java有默认参数。Javascript需要我们手工加：先检查有没有参数没有输入，然后给默认值
-```JavaScript
-var helloWorld = function(lang) {
-	if (typeof lang === "undefined")
-		lang = "English";
-	switch(lang) {
-		case "English":
-			console.log("Hello!")
-			return;
-		case "Chinese":
-			console.log("你好!");
-			return;
-	}
-}
-
-helloWorld();
-helloWorld("Chinese")
-```
-
-示例
-```JavaScript
-var str = "Quick brown fox";
-
-console.log("With two arguments:");
-console.log(str.substr(6, 5));	# 起始位置，长度
-
-console.log("With one argument:");
-console.log(str.substr(6));			# 没有长度，默认到尾
-```
-
-## 无名函数
-
-lambda函数。即写即用
-
-```JavaScript
-var helloFn = function() {
-	console.log("Hello!");
-}
-```
-
-这样会出错
-```JavaScript
-function() {
-	console.log("Hello!");
-}
-```
-
-这样就好了。不能直接用function开头。
-```JavaScript
-(function() {
-	console.log("Hello!");
-})
-```
-
-直接运行。在后面加括号就行。这看起来有点傻，但能够用来做global abatement。
-```JavaScript
-(function() {
-	console.log("Hello!");
-})()
-```
-
-无名函数适合做回调函数（callback），就是送进其它函数去的函数。
-
-React's JSX prefers functional style: map(), filter(), ?:
-```JavaScript
-var helloFn = function() {
-	console.log("Hello!");
-}
-
-// Call helloFn after one second
-window.setTimeout(helloFn, 1000);
-```
-
-因为只用一次，就别单独声明helloFn，用无名函数更简洁
-```JavaScript
-window.setTimeout(
-		function() { console.log("Hello!") },
-		1000
-	);
-```
-
-用无名函数给对象属性赋值
-```JavaScript
-var dog = {
-		"bark": function() { console.log("Woof!") }
-	};
-dog.bark();
-
-var cat = {}
-cat.meow = function() { console.log("Meow!") }
-cat.meow();
-```
-
-函数返回无名函数
-```JavaScript
-var makeGreeting = function() {
-    return function() {
-        console.log("Hello!");
-    };
-};
-
-var greeting = makeGreeting();	# greeting是一个函数
-greeting();
-```
-
-## 参数命名
+### 参数命名
 
 参数太多，眼睛花。用对象的方式，清楚
 ```JavaScript
@@ -254,23 +165,121 @@ orderSandwich({
 })
 ```
 
-# 函数
-
-Crockford Chapter 4
-
-## 上下文
-
-Object method invocation as method passing. The this variable as an implicit parameter variable. Problems with methods in event handlers and callbacks. Usage of call and apply. Binding context. The new keyword.
-
+### 模板输入
 ```JavaScript
+function formatGreetings(name, age) {
+ 	var str = `Hi ${name} your age is ${age}`;
 
+	// 允许多行，
+	var x = `This string has
+				two lines`;
+}
 ```
 
-## Closures（闭包）
+## 示例
 
-Lexical scope. Inner functions. Closure scope. Examining closure scope in the debugger. Functors. Simulation of private object properties. Simulation of namespaces.
+```JavaScript
+console.log(Math.max(1, 2));
+console.log(Math.max(3, 4, 5));
 
-# 函数式编程
+console.log(Math.min(1, 2));
+console.log(Math.min(3, 4, 5));
+
+var str = "Quick brown fox";
+
+console.log("With two arguments:");
+console.log(str.substr(6, 5));	# 起始位置，长度
+
+console.log("With one argument:");
+console.log(str.substr(6));			# 没有长度，默认到尾
+```
+
+## 无名函数
+
+### lambda函数。即写即用
+
+```JavaScript
+var helloFn = function() {
+	console.log("Hello!");
+}
+```
+
+不能直接用function开头。这样会出错
+```JavaScript
+function() {
+	console.log("Hello!");
+}
+```
+
+用()包起来就好了。
+```JavaScript
+(function() {
+	console.log("Hello!");
+})
+```
+
+直接运行。在后面加括号就行。这看起来有点傻，但能够用来做global abatement。
+```JavaScript
+(function() {
+	console.log("Hello!");
+})()
+```
+
+### 无名函数做回调函数（callback）
+
+送进其它函数去的函数。
+
+React's JSX prefers functional style: map(), filter(), ?:
+```JavaScript
+var helloFn = function() {
+	console.log("Hello!");
+}
+window.setTimeout(helloFn, 1000);
+```
+
+因为只用一次，就别单独声明helloFn，用无名函数更简洁
+```JavaScript
+window.setTimeout(
+		function() { console.log("Hello!") },
+		1000
+	);
+```
+
+### 用无名函数给对象属性赋值
+
+```JavaScript
+var dog = {
+		"bark": function() { console.log("Woof!") }
+	};
+dog.bark();
+
+var cat = {}
+cat.meow = function() { console.log("Meow!") }
+cat.meow();
+```
+
+### 函数返回无名函数
+
+```JavaScript
+var makeGreeting = function() {
+    return function() {
+        console.log("Hello!");
+    };
+};
+
+var greeting = makeGreeting();	# greeting是一个函数
+greeting();
+```
+
+# 函数高阶
+
+Object method invocation as method passing. The this variable as an implicit parameter variable. Problems with methods in event handlers and callbacks. Usage of call and apply. Binding context. The new keyword. Crockford Chapter 4
+
+## 函数式编程
+
+Functional programming. Side effects. Referential transparancy. Iteration over collections without loops. Implementation of map, reduce, find, filter.
+
+
 ```JavaScript
 for (var i = 0; i < anArr.length; i++) {
       newArr[i] = anArr[i]*i;
@@ -283,12 +292,16 @@ newArr = anArr.map(function (val, ind) {
 anArr.filter(filterFunc).map(mapFunc).reduce(reduceFunc);
 ```
 
+## 箭头函数
+
 ES6函数式编程：箭头函数，不重新定义this
 ```JavaScript
 newArr = anArr.map((val, ind) => val*ind);
 ```
 
-# 闭包closures
+## 闭包closures
+
+Lexical scope. Inner functions. Closure scope. Examining closure scope in the debugger. Functors. Simulation of private object properties. Simulation of namespaces.
 
 获得私有属性
 ```JavaScript
@@ -302,31 +315,6 @@ typeof myObj;        // 'object'
 Object.keys(myObj);  //  [ 'compute', 'setPrivate1' ]
 ```
 
-```JavaScript
-
-```
-
-## 高阶函数
-
-Functional programming. Side effects. Referential transparancy. Iteration over collections without loops. Implementation of map, reduce, find, filter.
-
-```JavaScript
-
-```
-
 ## 更高阶函数
 
 Implementation of curry, memoize, and debounce.
-
-```JavaScript
-
-```
-
-模板输入，允许多行，
-```JavaScript
-function formatGreetings(name, age) {
- 	var str = `Hi ${name} your age is ${age}`;
-	var x = `This string has
-				two lines`;
-}
-```

@@ -169,7 +169,7 @@ console.log("The answer to Life, The Universe and Everything is " + 42);
 
 没有跨行显示字符串的连接符，需手工连接
 ```JavaScript
-var gettysburgAddress =
+let gettysburgAddress =
 	"Four score and seven years ago our fathers brought forth on this " +
 	"continent, a new nation, conceived in Liberty, and dedicated to the " +
 	"proposition that all men are created equal.\n"
@@ -181,7 +181,7 @@ indexOf(), charAt(), match(), search(), replace(), toUpperCase(), toLowerCase(),
 
 切分
 ```JavaScript
-var str = "1 2 3 4";
+let str = "1 2 3 4";
 
 console.log("With string argument:")
 console.log(str.split(" "));
@@ -261,7 +261,7 @@ list.push(4); // OK
 
 ### 最佳实践
 
-尽量用const，不用var，这是谷歌的JS风格指导：https://google.github.io/styleguide/jsguide.html#features-use-const-and-let
+尽量用const，let，不用var，这是谷歌的JS风格指导：https://google.github.io/styleguide/jsguide.html#features-use-const-and-let
 
 ## 变量类型
 
@@ -275,19 +275,19 @@ const z = true;
 六种基本类型：boolean, number, string, symbol, null, undefined
 
 ```JavaScript
-var myNum = 1;
+let myNum = 1;
 console.log(typeof myNum);        // number
 
-var myBool = true;
+let myBool = true;
 console.log(typeof myBool);       // boolean
 
-var myString = "Hello world";
+let myString = "Hello world";
 console.log(typeof myString);     // string
 
-var myNull = null;
+let myNull = null;
 console.log(typeof myNull);       // null
 
-var myUndefined;
+let myUndefined;
 console.log(typeof myUndefined);  // undefined
 
 console.log(typeof myMissing);    // undefined
@@ -297,19 +297,19 @@ console.log(typeof myMissing);    // undefined
 
 ：没有赋值
 ```JavaScript
-var myVar;
+let myVar;
 console.log(myVar);
 console.log(typeof myVar);
 ```
 
 ```JavaScript
-var myObj = {};
+let myObj = {};
 console.log(myObj.myProperty);
 console.log(typeof myObj.myProperty);
 ```
 
 ```JavaScript
-var myFn = function(myArg) {
+let myFn = function(myArg) {
 	console.log(myArg);
 	console.log(typeof myArg);
 }
@@ -317,7 +317,7 @@ myFn();
 ```
 
 ```JavaScript
-var myVar = undefined;
+let myVar = undefined;
 console.log(myVar);
 console.log(typeof myVar);
 ```
@@ -333,7 +333,7 @@ null是一个值，只是为空
 undefined是变量，但还没有值（但是，你也可以把一个变量的值设为undefined）
 
 ```JavaScript
-var myVar = null;
+let myVar = null;
 console.log(myVar);
 console.log(typeof myVar);
 ```
@@ -349,7 +349,7 @@ console.log(typeof myVarx);
 距离January 1, 1970 UTC的毫秒数
 
 ```JavaScript
-var date = new Date();
+let date = new Date();
 date.valueOf() = 1452359316314
 date.toISOString() = '2016-01-09T17:08:36.314Z'
 date.toLocaleString() = '1/9/2016, 9:08:36 AM'
@@ -362,17 +362,17 @@ Reference（指针）
 非primitive的变量，其实是一个指针。因此，把它赋值给另一个变量时，是把指针赋过去了。所以，那个变量如果内容发生了变化，这个也会发生变化
 
 ```JavaScript
-var myArr1 = [1, 2, 3];
-var myArr2 = myArr1;
+let myArr1 = [1, 2, 3];
+let myArr2 = myArr1;
 myArr2.push(4);
 console.log(myArr1);
 ```
 
 链表
 ```JavaScript
-var link1 = {val: "1", next: null};
-var link2 = {val: "1", next: null};
-var link3 = {val: "1", next: null};
+let link1 = {val: "1", next: null};
+let link2 = {val: "1", next: null};
+let link3 = {val: "1", next: null};
 link1.next = link2;
 link2.next = link3;
 link3.next = link1;
@@ -401,10 +401,10 @@ console.log({} + {});
 ```
 
 ```JavaScript
-var duck = "Donald Duck";
-// var duck = ["Donald", "Duck"];
+let duck = "Donald Duck";
+// let duck = ["Donald", "Duck"];
 
-for (var i = 0; i < duck.length; i++) {
+for (let i = 0; i < duck.length; i++) {
 	console.log("Element #" + i + ": " + duck[i]);
 }
 ```
@@ -455,7 +455,7 @@ null === undefined  // false
 ## If - Else
 
 ```JavaScript
-var x = 11;
+let x = 11;
 if (x < 10) {
 	console.log("x is less than 10.");
 } else if (x >= 10 && x <= 20) {
@@ -468,8 +468,8 @@ if (x < 10) {
 ## while
 
 ```JavaScript
-var numNyan = 10;
-var i = 0;
+let numNyan = 10;
+let i = 0;
 while (i < numNyan) {
 	console.log("nyan ")
 	i++;
@@ -479,10 +479,10 @@ while (i < numNyan) {
 ## for
 
 ```JavaScript
-var n = 3;
-var d = 10;
+let n = 3;
+let d = 10;
 console.log("First " + n + " multiples of " + d)
-for (var i = 1; i <= n; i++) {
+for (let i = 1; i <= n; i++) {
 	console.log(i * d);
 }
 ```
@@ -490,7 +490,7 @@ for (var i = 1; i <= n; i++) {
 ## switch
 
 ```JavaScript
-var n = 1;
+let n = 1;
 switch (n) {
 	case 1:
 		console.log("Ichi");
@@ -508,8 +508,8 @@ switch (n) {
 
 ## 常规表达式
 ```JavaScript
-var re = /ab+c/;
-var re2 = new RegExp("ab+c");
+let re = /ab+c/;
+let re2 = new RegExp("ab+c");
 ```
 
 ## 字符操作
@@ -528,8 +528,8 @@ search(), match(), replace(), and split()
 ## 常规表达式操作
 RegExp: exec() and test()
 ```JavaScript
-var str = "This has 'quoted' words like 'this'";
-var re = /'[^']*'/g;
+let str = "This has 'quoted' words like 'this'";
+let re = /'[^']*'/g;
 re.exec(str); // Returns ["'quoted'", index: 9, input: ...
 re.exec(str); // Returns ["'this'", index: 29, input: ...
 re.exec(str); // Returns null
@@ -546,7 +546,7 @@ str.replace(/'[^']*'/g, 'XXX'); // Returns: 'This has XXX words with XXX.'
 
 function onKeyDown2(event) {
   console.log('有人来了，按了' + event.key);
-  var x = prompt("请输入暗号！");
+  let x = prompt("请输入暗号！");
   console.log('输入暗号是' + x);
   x = parseInt('x');
   if (x === 1){
@@ -579,4 +579,23 @@ try {
     }
 
 console.log("Got Error:", err.stack || err.message || err);
+```
+
+# 全局变量
+
+全局变量是window对象的属性
+```JavaScript
+EARTH_GRAVITY = 9.807
+MOON_GRAVITY = 1.622
+MARS_GRAVITY = 3.711
+console.log(window.EARTH_GRAVITY);
+console.log(window.MOON_GRAVITY);
+console.log(window.MARS_GRAVITY);
+
+window.EARTH_GRAVITY = 9.807
+window.MOON_GRAVITY = 1.622
+window.MARS_GRAVITY = 3.711
+console.log(EARTH_GRAVITY);
+console.log(MOON_GRAVITY);
+console.log(MARS_GRAVITY);
 ```

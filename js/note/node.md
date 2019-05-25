@@ -122,3 +122,22 @@ hello.ejs文件内容如下，其中 <%= greet %> 是需要替换的模板内容
 </html>
 
 ```
+
+# Ajax
+
+AJAX. Asynchronous communication. Callback functions. The get and post formats. Same-origin policy. Cross-origin requests with JSONP. AJAX polling. (Flanagan Chapter 18，19)
+
+```JavaScript
+var request = new XMLHttpRequest();
+request.open("GET","data.csv");
+request.setRequestHeader("Content-Type", "text/plain");
+request.send(null)
+```
+
+## jQuery Ajax
+1. load
+2. get, post
+
+```JavaScript
+jQuery.get("debug.txt",alert);
+```

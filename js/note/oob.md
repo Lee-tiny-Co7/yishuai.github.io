@@ -7,6 +7,7 @@ Almost everything is an object. Objects as unordered maps. Object creation, modi
 复合结构，一组数据
 
 ## 声明
+
 ```JavaScript
 var student = {
 	"name": "Jane Doe",
@@ -19,7 +20,10 @@ var ninja = {
 };
 ```
 
-加新属性
+## 加新属性
+
+赋值，就自动加了新属性
+
 ```JavaScript
 var student = {
 	"name": "Jane Doe",
@@ -30,13 +34,16 @@ student.age = 14;
 console.log(student);
 ```
 
-删属性
+## 删属性
+
+delete
+
 ```JavaScript
 delete student.class;
 console.log(student);
 ```
 
-读写
+## 读写
 ```JavaScript
 student.class = 2014;
 
@@ -58,8 +65,14 @@ console.log(ninja.email);  // Not an error
 console.log(ninja["email"]);  // Not an error
 ```
 
-遍历对象的属性
+## 遍历对象的属性
+
+for in，顺序不确定。
+
 注意；对数组，不能用 for in，而是要用for of
+
+hasOwnProperty确保不会访问后面prototype chain定义的属性。
+
 ```JavaScript
 
 Object.keys({name: "Alice", age: 23}) = ["name", "age"]
@@ -75,12 +88,46 @@ for (let name in scores) {
 }
 ```
 
-顺序不确定。
+## 一切都是对象
 
-hasOwnProperty确保不会访问后面prototype chain定义的属性。
+除了null，undefined，其它一切都是对象，可以用.来进行函数调用。
+
+```JavaScript
+console.log(true.toString());
+console.log("Hello world!".toString());
+console.log([1, 2, 3].toString());
+console.log({"hi": "there"}.toString());
+```
+
+但数字后面加.会被认为是小数点，所以要加()。{}也是。
+```JavaScript
+console.log(0.toString());
+console.log(function() {}.toString());
+
+console.log((0).toString());
+console.log((function() {}).toString());
+
+console.log("Hey Jude".indexOf("Jude"));
+console.log((42).toString());
+```
+
+对一个primitive来说（即number, string, boolean, null, undefined），JS会动态生成一个对象，执行完操作后，对象删除。所以不能往里面加新属性等。
+
+```JavaScript
+var myNum = 42;
+myNum.answerTo = "Life, The Universe and Everything";
+console.log(myNum.answerTo);
+```
+
+访问一个可能没有定义的对象属性
+```JavaScript
+var prop = obj && obj.propname;
+```
 
 ## this
+
 指向自己
+
 ```JavaScript
 var obj = {count: 0};
 obj.increment = function (amount) {
@@ -118,6 +165,7 @@ fs.readFile(this.fileName + fileNo, (err, data) =>
 ## 函数就是类
 
 函数就是类
+
 ```JavaScript
 function Rectangle(width, height) {
    this.width = width;
@@ -209,39 +257,6 @@ class HelloWorld extends React.Component {
 ```
 
 
-除了null，undefined，其它一切都是对象，可以用.来进行函数调用。
-
-```JavaScript
-console.log(true.toString());
-console.log("Hello world!".toString());
-console.log([1, 2, 3].toString());
-console.log({"hi": "there"}.toString());
-```
-
-但数字后面加.会被认为是小数点，所以要加()。{}也是。
-```JavaScript
-console.log(0.toString());
-console.log(function() {}.toString());
-
-console.log((0).toString());
-console.log((function() {}).toString());
-
-console.log("Hey Jude".indexOf("Jude"));
-console.log((42).toString());
-```
-
-对一个primitive来说（即number, string, boolean, null, undefined），JS会动态生成一个对象，执行完操作后，对象删除。所以不能往里面加新属性等。
-
-```JavaScript
-var myNum = 42;
-myNum.answerTo = "Life, The Universe and Everything";
-console.log(myNum.answerTo);
-```
-
-访问一个可能没有定义的对象属性
-```JavaScript
-var prop = obj && obj.propname;
-```
 
 # JSON
 
