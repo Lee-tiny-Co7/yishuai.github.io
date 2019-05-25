@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>实务学堂Web学习之路前端开发</title>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              text-align: left;
+            }
+            /* tr:nth-child(odd){
+                background-color: #cff;
+                /*color: white;*/
+            } */
+            .neirong {
+                background-color:yellow;
+            }
+            #zuiqiang{
+                background-color:red;
+            }
+        </style>
+    </head>
+
+    <body>
+
+      <h1>学习路线 - HTML/CSS部分</h1>
+
+      <p>下面的学习路线从浅至深，建议按下面顺序依次进行学习。</p>
+
+      <p>在每一部分学习中，建议按以下步骤认真进行：
+      <ol>
+        <li><strong>学习</strong>：看视频，记笔记，做讲解，更新学习之路。这样做的目的是：建立一个知识框架。听课其实是最高效的学习方法，因为老师对教学内容进行了梳理，建立了各内容之间的逻辑联系，
+          所以，听课是最简单高效的学习方法。
+          视频以林大为主，因为林大老师的讲解、PPT、示例代码都给得比较细，比较清楚，容易上手。
+          但林大有些重要内容没有讲，比如弹性盒子、CSS网格，而清华讲了，所以，这几个部分就看清华视频。</li>
+        <li><strong>练习</strong>：FCC的练习非常好。每一关都会介绍一个小的知识点，然后通过练习掌握。它的内容也很新，很实战。注意：不建议跳过第一步的看视频，而直接做FCC练习，这是
+          因为我们需要通过视频，建立知识框架，获得总体认识，这有助于我们在做FCC练习时，明白自己在学习之路的哪个位置。</li>
+        <li><strong>实战</strong>：学习和练习后，我们往往发现：代码能看懂，也有一个模糊的印象，但遇到一个实际问题（比如做一个网站），还是不知道如何做。所以，需要大量练习。这方面，我们通过作业完成。
+          所以我们要高度重视我们的作业。完成的作业作品，可依次放到我们的作品主页上。</li>
+      </ol>
+      </p>
+
+      <h2> <a name="">下面是学习内容</a></h2>
+
+      <h3> <a name="index">目录</a></h3>
+      <ol>
+          <li> <a href="#material">学习材料<a></li>
+          <li> <a href="#intro">入门<a></li>
+          <li> <a href="#html">HTML<a></li>
+          <li> <a href="#css">CSS样式<a></li>
+          <li> <a href="#csslayout">CSS布局 - 基础<a></li>
+          <li> <a href="#cssresponsive">CSS布局高级 - 响应式设计<a></li>
+          <li> <a href="#cssflexbox">CSS布局高级 - 弹性盒子<a></li>
+          <li> <a href="#cssgrid">CSS布局高级 - 网格<a></li>
+          <li> <a href="#htmlexer">HTML练习汇总</a></li>
+      </ol>
+
+      <a href="index.html">返回主页</a>
+      <h2> <a name="material"> 学习材料 </a></h2>
+      <table style="width:100%">
+        <tr>
+          <td>视频和参考代码</td>
+          <td>
+            <ol>
+                <li> 北京林业大学， <a href="https://www.icourse163.org/learn/BJFU-1003382003?tid=1003609002#/learn/content">《Web学习之路前端开发》</a>，<a href="doc/example.zip"> 示例代码（Zip，9.5MB）</a> </li>
+                <li> 清华大学， <a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+44100343X+2019_T1"> 《Web前端攻城狮》</a></li>
+            </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战参考代码</td>
+        <td>
+            <ol>
+                <li>  参考代码：<a href="https://github.com/yishuai/yishuai.github.io/tree/master/exercise">Github</a>（exercise目录）</li>
+                <li>  克隆命令：git clone https://github.com/yishuai/yishuai.github.io.git</li>
+            </ol>
+        </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="intro"> 一、入门</a></h2>
+      <table style="width:100%">
+        <tr>
+          <td>材料</td>
+          <td>
+            <ol>
+                <li>林大第1章《概述》</li>
+            </ol>
+          </td>
+        </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="html">二、HTML</a></h2>
+      <table style="width:100%">
+        <tr>
+          <td>材料</td>
+          <td>
+            <ol>
+                <li>林大第2章《HTML》</li>
+            </ol>
+          </td>
+        </tr>
+        <tr>
+          <td>练习</td>
+          <td>
+            <ol>
+                    <li>FCC: <a href="https://learn.freecodecamp.one/responsive-web-design/basic-html-and-html5">HTML基础介绍</a></li>
+                    <li>FCC: <a href="https://learn.freecodecamp.one/responsive-web-design/applied-accessibility">应用无障碍介绍</a></li>
+            </ol>
+        </tr>
+        <tr>
+          <td>实战</td>
+          <td>
+            <ol>
+                <li>参考<a href="exercise/林大/2 诗词网站/4-5 导航条.html">导航条</a>，完成林大第2章作业：诗词网站</li>
+                <li> <a href="https://www.jianshu.com/p/3a4ad6870936"> 如何实现一个导航栏  </a>  </li>
+                <li> <a href="http://www.w3school.com.cn/tiy/t.asp?f=html_link_locations"> 链接位置 </a></li>
+                <li> <a href="https://m.jb51.net/css/627067.html"> CSS设置列表样式和创建导航菜单实现代码  </a> </li>
+            </ol>
+          </td>
+        </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="css">三、CSS样式</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+            <li>林大第3章《CSS样式》</li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <li>FCC: <a href="https://learn.freecodecamp.one/responsive-web-design/basic-css">CSS基础介绍</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          <ol>
+              <li>参考<a href="exercise/林大/3 表格超链/index.html">表格超链1</a>，<a href="exercise/林大/3 表格超链/表格练习.html">表格超链2</a>，完成林大第3章作业：表格超链</li>
+              <li>参考FCC项目实战1：<a href="exercise/FCC/8 致敬/1.html">致敬</a>，制作一个网页，致敬一个你想致敬的人</li>
+          </ol>
+        </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="csslayout">四、CSS布局 - 基础</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+              <li>林大第4章《CSS布局与定位》，第5章《CSS3》</li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <li>FCC: <a href="https://learn.freecodecamp.one/responsive-web-design/applied-visual-design">应用视觉设计介绍</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          <ol>
+              <li>参考<a href="exercise/林大/4 浮动/4-7 层定位/3 rel abs.html">浮动1</a>，
+                            <a href="exercise/林大/4 浮动/4-7 层定位/2 fixed 左右.html">浮动2</a>，
+                            <a href="exercise/林大/4 浮动/4-7 层定位/1 fixed.html">浮动3</a>，
+                            <a href="exercise/林大/4 浮动/4-6 3行2列/index.html">浮动4</a>，完成林大第4章作业：浮动</li>
+              <li>参考<a href="exercise/林大/5-1 变色/5 annimation 变色.html">变色1</a>，
+                            <a href="exercise/林大/5-1 变色/2 transition颜色.html">变色2</a>，
+                            <a href="exercise/林大/5-1 变色/2 scale.html">缩放</a>，
+                            <a href="exercise/林大/5-2 变形/3 transition 多个属性.html">变形1</a>，
+                            <a href="exercise/林大/5-2 变形/3 圆角边框 圆.html">变形2</a>，完成林大第5章作业：变色，变形</li>
+              <li>参考<a href="exercise/林大/6-魔方/图片旋转.html">图片旋转1</a>，
+                            <a href="exercise/林大/6-魔方/rotate.html">图片旋转2</a>，
+                            <a href="exercise/林大/5-6 咖啡店/menu.html">咖啡店</a>，完成食堂网站</li>
+          </ol>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="cssresponsive">五、CSS布局高级 - 响应式设计</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+              <li>清华第4章《CSS高级》， 仅需看4.1 响应式设计， 4.2 CSS3 media query， 4.3 mobile first的响应式设计，这三节。</li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <li>FCC: <a href="https://learn.freecodecamp.one/responsive-web-design/responsive-web-design-principles">响应式Web设计介绍</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          <ol>
+              <li>参考FCC项目实战2：<a href="exercise/FCC/10 技术文档/技术文档.html">技术文档</a>，制作一个网页，介绍实务学堂</li>
+              <li>参考FCC项目实战3：<a href="exercise/FCC/9 调查表/调查表.html">调查表</a>，制作一个网页，调查大家的兴趣和爱好</li>
+              <li>参考FCC项目实战4：<a href="exercise/FCC/11 个人作品集/个人作品集.html">个人作品集</a>，修改你的个人作品集</li>
+          </ol>
+        </td>
+      </tr>
+    </table>
+
+    <a href="#index">返回目录</a>
+
+      <h2> <a name="cssflexbox">六、CSS布局高级 - 弹性盒子</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+              <li> <a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+44100343X+2019_T1/"> 3.8-3.11节，Flexbox介绍</a>  清华大学，Web前端攻城狮 </li>
+              <li> <a href="https://web.stanford.edu/class/cs193x/lectures/">Flexbox</a>，斯坦福大学CS193X</li>
+              <li> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout"> CSS弹性盒子布局</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <li>FCC: <a href="https://learn.freecodecamp.one/responsive-web-design/css-flexbox">CSS弹性盒子介绍</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          <ol>
+            <li>参考FCC项目实战5：<a href="exercise/FCC/12 产品销售/产品销售.html">产品销售</a>，制作一个网页，销售灯工作品</li>
+            <li>参考斯坦福：<a href="exercise/斯坦福/6 你的网站/Squarespace.html">个人网站</a>，制作一个网页，介绍你自己</li>
+            <li>参考斯坦福：<a href="exercise/斯坦福/7 宠物店/hw2-quiz/index.html">宠物店</a>，制作一个网页，介绍帅蚪</li>
+          </ol>
+        </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="cssgrid">七、CSS布局高级 - 网格</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+              <li> <a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+44100343X+2019_T1/"> 3.12-3.13节，Grid布局介绍</a>  清华大学，Web前端攻城狮 </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <li><a href="https://learn.freecodecamp.one/responsive-web-design/css-grid">FCC - CSS 网格介绍</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          <ol>
+              <li>修改你的宠物店网站，采用本节介绍的方法</li>
+          </ol>
+        </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h1> <a name="htmlexer">HTML练习汇总</a></h1>
+      <table style="width:100%">
+      <tr>
+          <th>名称</th>
+          <th>内容</th>
+      </tr>
+      <tr>
+          <td>练习示例</td>
+          <td>
+              <ol>
+                  <li> 林大
+                      <ol>
+                          <li>
+                              <a href="exercise/林大/2 诗词网站/4-5 导航条.html">导航条</a></li>
+                          <li>
+                              <a href="exercise/林大/3 表格超链/index.html">表格超链1</a>，
+                              <a href="exercise/林大/3 表格超链/表格练习.html">表格超链2</a>
+                          </li>
+                          <li>
+                              <a href="exercise/林大/4 浮动/4-7 层定位/3 rel abs.html">浮动1</a>，
+                              <a href="exercise/林大/4 浮动/4-7 层定位/2 fixed 左右.html">浮动2</a>，
+                              <a href="exercise/林大/4 浮动/4-7 层定位/1 fixed.html">浮动3</a>，
+                              <a href="exercise/林大/4 浮动/4-6 3行2列/index.html">浮动4</a>
+                          </li>
+                          <li>
+                              <a href="exercise/林大/5-1 变色/5 annimation 变色.html">变色1</a>，
+                              <a href="exercise/林大/5-1 变色/2 transition颜色.html">变色2</a>，
+                              <a href="exercise/林大/5-1 变色/2 scale.html">缩放</a>，
+                              <a href="exercise/林大/5-2 变形/3 transition 多个属性.html">变形1</a>，
+                              <a href="exercise/林大/5-2 变形/3 圆角边框 圆.html">变形2</a>
+                          </li>
+                          <li>
+                              <a href="exercise/林大/6-魔方/图片旋转.html">图片旋转1</a>，
+                              <a href="exercise/林大/6-魔方/rotate.html">图片旋转2</a>
+                          </li>
+                          <li><a href="exercise/林大/5-6 咖啡店/menu.html">咖啡店</a></li>
+                          <!-- <li><a href="exercise/林大/6-魔方/index-2.html">魔方</a></li> -->
+                      </ol>
+                  <li> 斯坦福：
+                      <a href="exercise/斯坦福/7 宠物店/hw2-quiz/index.html">宠物店</a>, <a href="exercise/斯坦福/6 你的网站/Squarespace.html">个人网站</a>
+                  </li>
+                  <li> FCC：
+                      <a href="exercise/FCC/8 致敬/1.html">致敬</a>，
+                      <a href="exercise/FCC/10 技术文档/技术文档.html">技术文档</a>，
+                      <a href="exercise/FCC/12 产品销售/产品销售.html">产品销售</a>，
+                      <a href="exercise/FCC/9 调查表/调查表.html">调查表</a>，
+                      <a href="exercise/FCC/11 个人作品集/个人作品集.html">个人作品集</a>
+                  </li>
+              </ol>
+           </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h1> 参考材料 </h1>
+      <ol>
+        <li>  <a href="https://developer.mozilla.org/zh-CN"> MDN开发者文档 </a> </li>
+          <li>  <a href="http://www.w3school.com.cn/tags/index.asp"> W3cshool手册 </a>  </li>
+          <li>  <a href="https://codepen.io/htmlcolorcodes/pen/waVREK"> HTML颜色代码 </a>，<a href="http://paletton.com/#uid=14h0u0kllllOBbwtWgrcKqf48va"> 配色方案 </a></li>
+          <!-- <li>  <a href="http://wiki.jikexueyuan.com/">极客学院教程</a></li> -->
+          <!-- <li>  <a href="https://www.imooc.com/course/list?c=fe">慕课网教程</a></li> -->
+          <li> [CSS设计指南]（第3版）</li>
+          <li>  <a href="https://www.squarespace.com/"> 网站模板 </a></li>
+      </ol>
+
+      <a href="index.html">返回主页</a>
+
+    </body>
+</html>
