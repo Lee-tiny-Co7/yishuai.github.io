@@ -1,0 +1,75 @@
+@media (max-width: 700px){
+  article{
+    width: 95%; /* width of content will now be 95% */
+  }
+  header div span{
+    display: none; /* no display for yellow circles */
+  }
+}
+@media (max-width: 500px){
+  .flex-container div{
+    width: 49%; /* width of div containing dog pictures */
+  }
+}
+
+.flex-container{ /*flex container for divs*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.flex-container div{
+  width : 32.5%;
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  border-width: 1px;
+  border-color: #dcdcdc;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.flex-container img {
+width: 100%;
+}
+
+.flex-container .chosen{
+  background-color: #cfe3ff;
+  opacity: 1.0;
+}
+
+.flex-container .unchosen{
+  opacity: 0.6;
+}
+
+#results { /* CSS for results that will display following the end of the quiz */
+  margin-top: 40px;
+  padding: 20px;
+  border: 2px solid gray;
+  margin-bottom: 20px;
+  display: none;
+}
+
+#results h2{
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+
+#results p{
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+#results button{
+  font-size: 25px;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+  background-color: #cecece;
+}
+
+#results button:hover{
+  background-color:  #e0e0e0;
+}

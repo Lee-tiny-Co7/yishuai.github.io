@@ -1,0 +1,122 @@
+/**
+ TODO(you): Write the CSS necessary to complete HW1!
+*/
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	line-height: 32px;
+	color: rgb(51, 51, 51);
+}
+
+hr {
+	line-height: 2px;
+	max-width: 21%; /* Is there some way to make it relative to the height of the profile block? */
+	border-color: #e6e6e6;
+}
+
+br {
+	line-height: 20px;
+}
+
+p {
+	margin: 0px;
+}
+
+/* For details */
+div.info {
+	max-width: 66.67%;
+	padding-left: 40px;
+	border-width: 0px;
+}
+
+/* For numbers */
+div.nums{
+	font-family: 'Roboto Slab', serif;
+	font-size: 36px;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.25);
+	padding-top: 60px;
+}
+
+/* For sub titles*/
+p.titles {
+	font-family: 'Roboto Slab', serif;
+	font-size: 36px;
+	font-weight: bold;
+	color: rgb(51, 51, 51);
+	padding-top: 60px;
+}
+
+p.text {
+	padding-top: 20px;
+}
+
+/* Links - to override colour */
+a.address {
+	color: #42b4d6;
+	padding-top: 10px;
+}
+
+/* Unvisited address link */
+a.address:link {
+	text-decoration: none;
+}
+
+/* hovering address */
+a.address:hover {
+	text-decoration: underline;
+}
+
+/* For images */
+img.image {
+	max-width: 100%;
+	padding-bottom: 60px;
+	padding-top: 20px;
+}
+
+#content {
+	display: flex;
+	justify-content: center;
+}
+
+#titleBlock {
+	display: flex;
+	align-items: center; /* Center of all margins */
+	height: 500px;
+	background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../images/header.jpg); /* Opacity, then background image */
+	background-size: cover; /* Spans width of screen */
+	background-position: top; /* Align with top of block */
+	font-family: 'Roboto Slab', serif;
+	font-size: 36px;
+}
+
+#titleText {
+	margin-left: auto; /* Deals with item placement in super block */
+	margin-right: auto; /* Deals with item placement in super block */
+	text-align: center;
+	max-width: 750px;
+	color: white;
+}
+
+#profile {
+	
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	color: rgb(51, 51, 51);
+	line-height: 24px;
+	text-decoration-color: #e6e6e6;
+	
+}
+
+#profilePic {
+	height: 100px;
+	margin-top: -50px;
+	border-radius: 100%;
+	border-color: white;
+	border-width: 1px;
+}
+

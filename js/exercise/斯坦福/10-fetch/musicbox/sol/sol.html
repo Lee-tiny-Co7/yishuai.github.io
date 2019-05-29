@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://tsebolai.me/hw4-music-box-Thapz123/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>CS193X Music Box</title>
+    <link href="./sol_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="./sol_files/style.css">
+    <link rel="stylesheet" href="./sol_files/musicbox-style.css">
+    <link rel="icon" type="image/png" href="http://tsebolai.me/hw4-music-box-Thapz123/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://tsebolai.me/hw4-music-box-Thapz123/images/favicon-16x16.png" sizes="16x16">
+    <script src="./sol_files/dancer.min.js"></script>
+    <script src="./sol_files/fetch.js"></script>
+    <script src="./sol_files/audio-player.js" defer=""></script>
+    <!-- TODO(you): Add any additional scripts here! -->
+    <script src="./sol_files/menu-screen.js" defer=""></script>
+    <script src="./sol_files/play-button.js" defer=""></script>
+    <script src="./sol_files/gif-display.js" defer=""></script>
+    <script src="./sol_files/music-screen.js" defer=""></script>
+    <script src="./sol_files/app.js" defer=""></script>
+    <script src="./sol_files/script.js" defer=""></script>
+</head>
+
+<body>
+    <div id="menu" class="inactive">
+        <h1>Music Box</h1>
+        <fieldset>
+            <form>
+                <h2>1. Choose a song:</h2>
+                <select id="song-selector"></select>
+                <h2>2. Choose a theme:</h2>
+                <input type="text" id="query-input" placeholder="Enter a word or phrase">
+                <div id="error" class="inactive">Not enough gifs for this theme. Please try another.</div>
+                <input type="submit" value="Go">
+            </form>
+        </fieldset>
+    </div>
+    <div id="load-screen" class="inactive">
+        <h1>Loading...</h1>
+    </div>
+    <div id="music" class="">
+        <div id="gif-display">
+            <div id="screen1" class="gif-screen" data-z-index="1" style="background-image: url(&quot;https://media0.giphy.com/media/l41YbTbmmmaHRlR9S/giphy-downsized.gif?cid=e1bb72ff5cedcab36765556877cfcb92&amp;rid=giphy-downsized.gif&quot;);"></div>
+            <div id="screen2" class="gif-screen" data-z-index="0" style="background-image: url(&quot;https://media0.giphy.com/media/l41YbTbmmmaHRlR9S/giphy-downsized.gif?cid=e1bb72ff5cedcab36765556877cfcb92&amp;rid=giphy-downsized.gif&quot;);"></div>
+        </div>
+        <div id="control-bar">
+            <input type="image" id="controls" src="./sol_files/pause.png">
+        </div>
+    </div>
+    <!-- TODO(you): Add the HTML necessary to complete the assignment! -->
+
+
+
+</body></html>

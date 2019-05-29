@@ -1,0 +1,33 @@
+#sign-up-container {
+  border: 0.75em solid #DDE4E8;
+  line-height: 1.3em;
+  margin: 1em;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
+#sign-up-container hr {
+  border: 0;
+  border-top: 1px solid #DDE4E8;
+  width: 80%;
+}
+
+#sign-up-container p {
+  margin: 1em;
+}
+
+#sign-up-container p.googleLogin a {
+  background-color: red;
+  color: white;
+  display: block;
+  font-size: 1.2em;
+  padding: 1.25em;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 55em) {
+  #sign-up-container {
+    margin: 3em auto;
+    width: 35%;
+  }
+}

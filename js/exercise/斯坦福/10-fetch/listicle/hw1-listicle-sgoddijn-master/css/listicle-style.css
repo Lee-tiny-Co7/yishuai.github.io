@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+}
+
+img.list {
+  display: block;
+  height: 800px;
+  margin-bottom: 120px;
+}
+
+header.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("images/header.jpg");
+  height: 500px;
+  align-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: center;
+}
+
+header.title_mine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url("https://lonelyplanetimages.imgix.net/mastheads/stock-photo-beautiful-amsterdam-76796579.jpg?sharp=10&vib=20&w=1200");
+  height: 500px;
+  align-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: center;
+}
+
+#header {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+header.list {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: rgb(51, 51, 51);
+  position: relative;
+}
+
+a {
+  color: #42b4d6;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+p.number {
+  position: absolute;
+  left: -76px;
+  top: -36px;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+title {
+  display: inline-block;
+  text-align: center;
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+  color: white;
+  max-width: 780px;
+  vertical-align: middle;
+}
+
+ img.profile {
+  border-radius: 100%;
+  display: block;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
+}
+
+hr{
+  width: 200px;
+  position: relative;
+  display: block;
+  margin-top: -8px;
+  color: #e6e6e6;
+}
+
+p.update {
+  font-style: italic;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  margin-top: -18px;
+  color: (51,51,51);
+  text-align: center;
+}
+
+#flex-container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 66.67%;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+bold {
+  font-weight: bold;
+}
+
+#flex-box {
+  margin-top: 60px;
+  margin-bottom: 120px;
+  height: 500px;
+}
+
+p.list {
+  font-size: 18px;
+  line-height: 32px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: rgb(51, 51, 51);
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+p.name {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: (51,51,51);
+  line-height: 24px;
+  text-align: center;
+}

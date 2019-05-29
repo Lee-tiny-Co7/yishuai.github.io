@@ -1,0 +1,40 @@
+a.home-sign-up {
+  background-color: #536071;
+  border-radius: 0.5em;
+  color: white;
+  display: inline-block;
+  font-size: 1.5em;
+  padding: 1em 3em;
+}
+
+#main div.description > p {
+  font-size: 1.5em;
+}
+
+#main.home {
+  text-align: center;
+}
+
+@media screen and (min-width: 55em) {
+  a.home-sign-up {
+    font-size: 2em;
+    padding: 1em 3em;
+    margin-top: 0.5em;
+  }
+
+  #main div.description {
+    font-size: 1.25em;
+    text-align: left;
+  }
+
+  #main div.description .more {
+    font-size: 1em;
+  }
+
+  #main div.description, #main div.sign-up {
+    display: inline-block;
+    margin: 1em;
+    vertical-align: middle;
+    width: 40%;
+  }
+}

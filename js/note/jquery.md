@@ -4,6 +4,12 @@
 
 Overview of jQuery. Cross-browser compatibility. The $ function object. Element selectors. Tree traversal. Node creation, insertion, modification and deletion. Getting and setting attributes, styles and class. Wrapping and unwrapping DOM raw objects. The chaining pattern. (Flanagan Chapter 19)
 
+FCC练习18个。耗时：1小时。
+
+知识点：
+
+选择元素，修改class，css，禁用、修改、删除、移动、克隆元素，选择父-子-特定子元素，修改整个页面
+
 ## $变量
 
 用CSS选择器，得到一套元素，然后一次对所有元素进行操作
@@ -63,6 +69,12 @@ var fruits = $(".apples, .oranges")		# 合并
 var ripeApples = $(".apples.ripe")		# 交集
 ```
 
+选择特定子元素
+```JavaScript
+$(".target:nth-child(2)").addClass("animated bounce");
+$(".target:even").addClass("animated shake");
+```
+
 ## 元素操作
 
 1. attr：属性
@@ -77,6 +89,11 @@ var ripeApples = $(".apples.ripe")		# 交集
 操作会返回原对象，所以可以链式操作
 ```JavaScript
 $(".elem").css("background", "yellow").attr("src", "some-url")  // etc.
+```
+
+prop: 调整属性标签
+```JavaScript
+$("button").prop("disabled", true);
 ```
 
 ## 修改内容
@@ -101,10 +118,45 @@ var $(".elem").text("<b>Hello world!</b>")
 
 也可以prependTo, prependTo, insertAfter，insertBefore，
 
+```JavaScript
+$("#target2").appendTo("#right-well");
+```
+
 ## 加删元素
 1. 加：给$送进去一个完整元素的HTML，然后插入即可。
 2. 删：remove
 
+```JavaScript
+$("#target4").remove()
+```
+
+## 复制元素
+
+克隆
+
+```JavaScript
+$("#target5").clone().appendTo("#left-well");
+```
+
+## 访问父/子元素（标签）
+
+```JavaScript
+$("#target1").parent().css("background-color",'red');
+$("#right-well").children().css("color", "orange");
+```
+
+```JavaScript
+
+```
+
+
+```JavaScript
+
+```
+
+```JavaScript
+
+```
 
 # 事件处理，动画
 
@@ -138,7 +190,9 @@ $("#hello_btn").click();
 1. setTimer
 2. fadeIn, fadeOut, fadeToggle
 3. slideIn, slideOut, slideToggle：适合菜单
+4. hinge: 铰链转动，特别逗
 
 ```JavaScript
 $("#elem").fadeOut().fadeIn()		# 先fadeout，再fadein
+$("body").addClass("animated hinge");
 ```

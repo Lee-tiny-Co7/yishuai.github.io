@@ -1,0 +1,16 @@
+body {
+  font-family: Monospace;
+}
+
+body, input {
+  font-size: 14pt;
+}
+
+#result {
+  margin-top: 2em;
+}
+
+#result .one-result {
+  align-items: center;
+  display: flex;
+}

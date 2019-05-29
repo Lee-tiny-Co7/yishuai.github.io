@@ -1,0 +1,83 @@
+#header {
+  text-align: center;
+}
+
+#header hr {
+  border: 0;
+  border-top: 2px solid #DDE4E8;
+  width: 95%;
+}
+
+#header nav span {
+  border-radius: 0.5em;
+  background: whitesmoke;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0.5em 0.75em;
+}
+
+#header nav {
+  display: inline-block;
+}
+
+#logo {
+  font-size: 2em;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+#logo a {
+  color: black;
+}
+
+@media screen and (min-width: 55em) {
+  #header {
+    margin: auto;
+    text-align: left;
+    width: 95%;
+  }
+
+  #header nav, #logo {
+    display: inline-block;
+    line-height: 100px;
+    margin: 0;
+  }
+
+  #header > nav {
+    vertical-align: top;
+    width: 65%;
+  }
+
+  #header nav span {
+    background: white;
+    border-radius: 0;
+    display: inline;
+  }
+
+  #header nav.left {
+    text-align: left;
+    width: 50%;
+  }
+
+  #header nav.right {
+    text-align: right;
+    width: 50%;
+  }
+
+  #header hr {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  #logo {
+    font-size: 30pt;
+    letter-spacing: 0.2em;
+    vertical-align: top;
+    width: 35%;
+    text-align: center;
+  }
+
+  span.link {
+    padding: 50px;
+  }
+}

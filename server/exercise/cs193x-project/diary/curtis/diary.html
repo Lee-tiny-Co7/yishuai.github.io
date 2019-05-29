@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://cs193xdiary.herokuapp.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>193Diary</title>
+    <link href="./diary_files/css" rel="stylesheet">
+    <link href="./diary_files/css(1)" rel="stylesheet">
+    <link rel="stylesheet" href="./diary_files/style.css">
+    <script src="./diary_files/constants.js" defer=""></script>
+    <script src="./diary_files/forward-back-button.js" defer=""></script>
+    <script src="./diary_files/diary-service.js" defer=""></script>
+    <script src="./diary_files/diary-screen.js" defer=""></script>
+    <script src="./diary_files/menu-screen.js" defer=""></script>
+    <script src="./diary_files/app.js" defer=""></script>
+    <script src="./diary_files/script.js" defer=""></script>
+  </head>
+  <body>
+
+    <div id="menu" class="inactive">
+      <h> Create a Daily Journal </h>
+      <p> Note: Your journal will be viewable and editable to anyone who has the link </p>
+      <button id="createJournal"> Create a New Journal </button>
+    </div>
+
+    <div id="journalScreen" class="inactive">
+      <div id="journalContainer">
+      <h id="date"> Loading Date </h>
+      <p id="subtitle"> Loading Prompt </p>
+      <textarea id="journalEntry"> </textarea>
+    </div>
+      <footer id="footer"> <span> <img id="back" src="./diary_files/back.png"> </span>
+        <span> <h6 id="home"> HOME </h6> </span>
+        <span> <img id="forward" src="./diary_files/forward.png"> </span> </footer>
+    </div>
+  
+
+</body></html>

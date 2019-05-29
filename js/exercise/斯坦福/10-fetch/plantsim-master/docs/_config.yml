@@ -1,0 +1,6 @@
+theme: jekyll-theme-cayman
+title: Feed the Plants
+description: a game dev blog
+baseurl: /plantsim
+gems: 
+  - jekyll-feed

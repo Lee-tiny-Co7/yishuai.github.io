@@ -1,0 +1,99 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+
+@font-face {
+    font-family: '04b03';
+    src:url('{{ site.baseurl }}/assets/fonts/04b03.ttf.woff') format('woff'),
+        url('{{ site.baseurl }}/assets/fonts/04b03.ttf.svg#04b03') format('svg'),
+        url('{{ site.baseurl }}/assets/fonts/04b03.ttf.eot'),
+        url('{{ site.baseurl }}/assets/fonts/04b03.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+  color: #FF004D;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #FFF1E8;
+  color: #5F574F;
+}
+
+h1.project-name a {
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: '04b03', 'Roboto Mono', monospace;
+  margin: 0;
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  color: #008751;
+  margin: 0;
+}
+
+.main-content h2 {
+  font-size: 2em;
+}
+
+.main-content h3 {
+  font-size: 1.5em;
+}
+
+.page-header {
+  background-color: black;
+  background-image: none;
+}
+
+.main-content {
+  font-size: 1rem;
+}
+
+.main-content hr {
+  margin: 2rem 0;
+  height: 7px;
+  background-color: #FF77A8;
+}
+
+.main-content footer {
+  border-top: solid 2px #5F574F;
+  padding-top: 0.5em;
+  font-style: italic;
+  margin-bottom: 3em;
+}
+
+.site-footer {
+  border-top: solid 2px #5F574F;
+}
+
+.site-footer-credits {
+  color: #83769C;
+}
+
+footer.site-footer {
+  color: #83769C;
+  border: 0;
+  font-style: normal;
+  margin-top: 3em;
+}
+
+footer.site-footer a {
+  color: #FF77A8;
+}
+

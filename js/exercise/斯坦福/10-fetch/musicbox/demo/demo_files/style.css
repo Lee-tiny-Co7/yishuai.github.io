@@ -1,0 +1,14 @@
+.group {
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0;
+}
+
+input {
+  font-size: 14pt;
+  margin: 5px;
+}
+
+input[type=text] {
+  width: 500px;
+}
