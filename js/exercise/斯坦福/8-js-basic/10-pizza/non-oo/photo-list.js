@@ -1,8 +1,8 @@
 const PHOTO_LIST = [
-  'deepdish.jpg',
-  'flatbread.jpg',
-  'frenchbread.jpg',
-  'neapolitan.jpg',
-  'nypizza.jpg',
-  'squarepan.jpg'
+  '../images/deepdish.jpg',
+  '../images/flatbread.jpg',
+  '../images/frenchbread.jpg',
+  '../images/neapolitan.jpg',
+  '../images/nypizza.jpg',
+  '../images/squarepan.jpg'
 ];
