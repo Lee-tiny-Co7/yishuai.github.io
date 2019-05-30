@@ -7,7 +7,7 @@ class App {
   constructor(menu, music) {
     // TODO(you): Implement the constructor and add fields as necessary.
 	// Makes menu screen
-	
+
 	this.menu = menu;
 	this.music = music;
 
@@ -17,9 +17,9 @@ class App {
 	// this.music = new MusicScreen(document.getElementById("music"));
 
 	document.addEventListener('buttonClicked', this.buttonClickedListener);
-	
+
   }
-  
+
   // TODO(you): Add methods as necessary.
   buttonClickedListener (event) {
   	app.music.theme = event.detail.chosenTheme;
