@@ -2,6 +2,23 @@
 
 Function declaration and invocation syntax. Anonymous functions. Functions as data. The arguments object. Variadic functions. Optional parameters. Named parameters. Function overloading. Duck typing. (Flanagan Chapter 8)，Crockford Chapter 4
 
+## 三种函数
+
+first-class 函数：函数可以作为类型为Function的变量，因此可以
+1. 作为参数传递
+2. 存在变量里
+3. 没有名字：匿名函数，lambda函数，literal值函数
+
+三种定义方法
+```js
+function myFunction(params) { }
+const myFunction = function(params) { };
+const myFunction = (params) => { };
+```
+
+练习：
+https://codepen.io/bee-arcade/pen/cff88343de4655069e157f094cccf247?editors=0011
+
 ## 基础
 
 函数定义也是hoisted。可以在声明前调用。所以，即使你在函数声明前调用了这个函数，也没事。

@@ -6,6 +6,10 @@ Almost everything is an object. Objects as unordered maps. Object creation, modi
 
 复合结构，一组数据
 
+两种定义方法：
+1. 函数
+2. Class
+
 ## 声明
 
 ```JavaScript
@@ -223,7 +227,61 @@ Rectangle.prototype.newMethod =
 Rectangle.prototype = new Shape(...);
 ```
 
-ES6的类继承
+## Class
+
+Public methods
+1. 构造器是可选的。
+2. 里面的函数不需要function关键字
+3. 在class里，必须用this引用其它函数
+4. 所有的方法是public的，不能定义private
+
+Public fields
+1. 用this.定义的就是public fileld。在constructor里定义的是，在其它函数里定义的也是。
+2. 定义后，在class里，得用this.引用它。
+
+Instantiation
+
+```JavaScript
+class ClassName{
+  constructor(){
+	}
+	methodName() {
+		this.methodTwo();
+	}
+	methodTwo() {
+	}
+}
+```
+
+### 类里的this
+
+this是动态assign的，在不同的context里，意味着不同的东西：https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+1. 在构造器constructor里，this指的是这个类的instance
+2. 在event handler里，this指的是这个event handler attach的元素。
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this#As_a_DOM_event_handler
+
+注意：java的this不同。它总是指向instance的。
+
+解决办法：可以用bind，把类里函数中的this总是指向instance对象
+1. 生成一个函数的拷贝，其中this总是指向一个值
+2. 把这个值bind到新对象上。所以this就总是指向这个对象了。而不是调用这个函数的html元素了。
+
+```js
+this.method = this.method.bind(this);
+```
+
+### 练习：
+
+把非对象的”礼物“”网页，改成面向对象的：
+1. 非对象的：https://codepen.io/bee-arcade/pen/db0b3223fd87ed06051aa1f2abf5ec63?editors=1010
+2. 面向对象的：
+	1. 初始代码：https://codepen.io/bee-arcade/project/editor/ZmgkzA
+	2. 完成后代码：https://codepen.io/bee-arcade/project/editor/DkmRVX
+	3. 把image作为对象属性，this bind的代码：https://codepen.io/bee-arcade/project/editor/ZBEqmD
+
+### ES6的类继承
+
 ```JavaScript
 class Rectangle extends Shape { // Definition and Inheritance
 	constructor(height, width) {
@@ -256,7 +314,213 @@ class HelloWorld extends React.Component {
 }
 ```
 
+# 类间通信
 
+## 练习
+
+5个礼物的例子：https://codepen.io/bee-arcade/project/editor/XaxgOZ
+里面有两个类：App，Present
+
+修改这个例子，当所有礼物都打开了，就来一句祝贺！ https://codepen.io/bee-arcade/project/editor/DvzqmD
+
+两种方法
+
+1. 定制一个event，在类间通信：https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
+
+```js
+const event = new CustomEvent(
+	 ename, optionalpara
+);
+
+element.addEventListener(ename);
+
+element.dispatchEvent(optionalpara);
+```
+
+例：https://codepen.io/bee-arcade/project/editor/AQPekX
+
+但是，定制的event只能被html元素监听和dispatch，不能给任意的类instance。所以，present不能给app类发。
+
+https://codepen.io/bee-arcade/project/editor/DWBKqA
+
+```js
+App
+	document.addEventListener('present-opened', this._onPresentOpened);
+Present
+	document.dispatchEvent(new CustomEvent('present-opened'));
+```
+
+解决办法：bind
+```js
+App
+	this._onPresentOpened = this._onPresentOpened.bind(this);
+
+```
+2. 加一个onOpened回调函数给Present
+
+App构造Presents时，给它自己的PresentOpened函数。
+Present被打开后，fire这个函数。
+注意要bind
+
+结果：https://codepen.io/bee-arcade/project/editor/XqGzeD
+
+示例：Pizza的面向对象版本
+
+https://codepen.io/bee-arcade/project/editor/AbJmLA/#
+
+## 如何选择“类”
+
+每一个元素，一个类：attach，remove event listener.
+
+React用这种方法
+
+## 示例
+
+三个按钮，按了后，更新h1
+示例：https://codepen.io/bee-arcade/live/b0ae765cc6ccf3187c03afda2b2e085c
+
+创建Button类
+https://codepen.io/bee-arcade/pen/713c9d676251dd8f43b13ca8cf2df160?editors=1010
+
+```js
+class Button {
+  constructor(containerElement, text) {
+    this.containerElement = containerElement;
+    const button = document.createElement('button');
+    button.textContent = text;
+    this.containerElement.append(button);
+  }
+}
+
+const buttonContainer = document.querySelector('#menu');
+const button1 = new Button(buttonContainer, 'A');
+const button2 = new Button(buttonContainer, 'B');
+const button3 = new Button(buttonContainer, 'C');
+```
+
+加点击响应函数
+
+第一次尝试
+https://codepen.io/bee-arcade/pen/8d2f166e69166dc9af1051f64437c959
+不成功。this指向的是button那个html element，不是button这个对象。但onClick函数是Button这个类的。
+
+需要bind
+https://codepen.io/bee-arcade/pen/3635971ec4c5a8caa97d262922e5bc89
+
+OO写法，两个类：
+
+1. 菜单类：包括三个按钮，它初始化的时候，生成这三个按钮：
+https://codepen.io/bee-arcade/pen/dbd02b9a9301acb969af0fa749168994
+
+2. 按钮类：每个按钮，画图，处理
+
+类间通信的两种方法：
+
+1. 按钮被按了以后，发一个’button-click”给菜单。菜单收到后，更新Header。注意bind
+https://codepen.io/bee-arcade/pen/2b5ab50df0f693ad81e6816f190439e8?editors=0010
+但显示的是Null is clicked
+因为我们加的定制event是给document的，所以event.currentTarget是document
+
+改进：把buttonName作为参数，也发给菜单。
+https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events#Adding_custom_data_%E2%80%93_CustomEvent()
+
+```js
+onClick() {
+	const eventInfo = {
+		buttonName: this.text
+	};
+	document.dispatchEvent(
+			new CustomEvent('button-clicked', { detail: eventInfo }));
+}
+```
+最终的效果：
+https://codepen.io/bee-arcade/pen/b0ae765cc6ccf3187c03afda2b2e085c?editors=0010
+
+2. 利用回调函数
+
+整理一下思想：函数也是一个对象。只是它的类型是Function而已。
+它有name，toString这些属性
+还有一个很特别的call()方法，用来执行它。用()操作符进行调用。
+
+可以把函数作为属性，赋给对象：
+https://codepen.io/bee-arcade/pen/107883c371bffa2d73ba1299becf1d38?editors=1011
+
+```js
+function sayHello() {
+  console.log('Ice Bear says hello');
+}
+
+const bear = {
+  name: 'Ice Bear',
+  hobbies: ['knitting', 'cooking', 'dancing'],
+  greeting: sayHello
+};
+bear.greeting();
+```
+
+既然函数是对象，就可以作为函数的参数，传递给eventListener。
+
+练习：https://codepen.io/bee-arcade/pen/cff88343de4655069e157f094cccf247?editors=0011
+
+```js
+function greetings(greeterFunction) {
+  greeterFunction();
+}
+
+const worldGreeting = function() {
+  console.log('hello world');
+};
+
+const hawaiianGreeting = () => {
+  console.log('aloha');
+};
+
+greetings(worldGreeting);
+greetings(hawaiianGreeting);
+```
+
+this指向函数的调用者
+https://codepen.io/bee-arcade/pen/b0c1f3c17814ba31d99c1e72a46b46e2?editors=1011
+
+```js
+function sayHello() {
+  console.log(this.name + ' says hello');
+}
+
+const bear = {
+  name: 'Ice Bear',
+  hobbies: ['knitting', 'cooking', 'dancing'],
+  greeting: sayHello
+};
+bear.greeting();
+
+const mario = {
+  name: 'Mario',
+  helloFunction: bear.greeting
+};
+mario.helloFunction();
+```
+
+示例：如果我们点按钮，会出来什么？
+https://codepen.io/bee-arcade/pen/d214bea753753099d49774157b98a71b?editors=0011
+
+```js
+const bear = {
+  characterName: 'Ice Bear',
+  hobbies: ['knitting', 'cooking', 'dancing'],
+  greeting: function() {
+     console.log(this.characterName + ' says hello');
+  }
+}
+bear.greeting();
+
+const button = document.querySelector('button');
+button.addEventListener('click', bear.greeting);
+```
+
+后一个的this是指向button的。它没有characterName属性，所以是undefined。
+
+加bind：练习
 
 # JSON
 
