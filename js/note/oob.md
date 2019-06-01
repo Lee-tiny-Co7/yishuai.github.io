@@ -280,6 +280,10 @@ this.method = this.method.bind(this);
 	2. 完成后代码：https://codepen.io/bee-arcade/project/editor/DkmRVX
 	3. 把image作为对象属性，this bind的代码：https://codepen.io/bee-arcade/project/editor/ZBEqmD
 
+面向对象的一个好处，是这个对象可以重用。
+
+练习：修改代码，显示两个礼物。
+
 ### ES6的类继承
 
 ```JavaScript
@@ -521,6 +525,14 @@ button.addEventListener('click', bear.greeting);
 后一个的this是指向button的。它没有characterName属性，所以是undefined。
 
 加bind：练习
+
+练习：
+button的例子，
+yishuai.github.io/js/exercise/斯坦福/10-js-oo/7-oo/button.html
+Menu更新status bar，它把自己更新status bar的函数showButtonClicked，送给button。
+button用addEventListener加了一个侦听器，两个参数：听什么（click），回调函数（onClick）。
+就像给这个按钮装了一个报警器，如果有人click，它就会立刻启动onClick函数，干活（比如“放狗”）
+在这里，button被点击后，会在自己的onClick里，调用它，从而修改status bar。
 
 # JSON
 

@@ -1,5 +1,147 @@
 # Ajax
 
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+## fetch api
+
+XMLHttpRequest老了。FCC是基于它的。最新的是Fetch API，更容易调用。实战里的，都是调用Fetch API
+
+fetch('a.txt');
+返回一个Promise，它管理异步事件返回的结果（三种状态：pending，fulfilled，rejected）。
+然后用一个then()方法，指定onSuccess和onError的事件处理器（attach）。
+可以绑定一串。
+不能file://本地fetch，要python -m http.server启动一个web server，然后访问 http://localhost:8000/
+
+## 获取摄像头
+
+两种方法
+
+1. callback
+
+2. Promise
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+response.status
+200： success
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+```js
+function onSuccess(response) {
+  }
+function onFail(response) {
+  }
+fetch('images.txt').then(onSuccess, onFail);
+```
+
+response.text()异步地读返回的stream，也返回一个Promise，接着then绑定其处理事件。
+
+```js
+function onStreamProcessed(text) {
+  console.log(text);
+}
+function onResponse(response) {
+  console.log(response.status); response.text().then(onStreamProcessed);
+}
+function onError(error) {
+  console.log('Error: ' + error);
+}
+fetch('images.txt').then(onResponse, onError);
+```
+
+顺序执行异步的actions
+
+```js
+function onStreamProcessed(text) {
+ console.log(text);
+}
+function onResponse(response) {
+ return response.text();
+}
+fetch('images.txt')
+   .then(onResponse, onError)
+   .then(onStreamProcessed);
+```
+
+练习：12-images-text
+
+## JSON
+
+对象-字符串之间相互转换
+JSON.stringify()
+JSON.parse()
+
+```js
+const bearString =
+      '{"name":"Ice Bear","hobbies":["knitting","cooking","dancing"]}';
+
+const bear = JSON.parse(bearString);
+console.log(bear);
+```
+
+```js
+const bear = {
+  name: 'Ice Bear',
+  hobbies: ['knitting', 'cooking', 'dancing']
+};
+
+const serializedBear = JSON.stringify(bear);
+console.log(serializedBear);
+```
+
+## fetch JSON
+
+```js
+function onStreamProcessed(json) {
+  console.log(json);
+}
+function onResponse(response) {
+  return response.json();
+}
+fetch('songs.json')
+  .then(onResponse, onError)
+  .then(onStreamProcessed);
+```
+
+## REST api
+
+类似fetch即可。
+
+搜索GIF
+https://github.com/Giphy/GiphyAPI#search-endpoint
+
+## Fetch限制
+
+不能读本地硬盘
+老浏览器不支持：用 https://github.com/jquery/PEP，封装的
+CORS: Cross-Origin Resource Sharing
+  abc.com访问zyx.com
+  可以img images，link css，script js
+  不能XHR，也不能fetch
+  除非web server配置说可以：https://enable-cors.org/server_apache.html
+  也可以配得连image也不可以
+
+# Ajax
+
+AJAX. Asynchronous communication. Callback functions. The get and post formats. Same-origin policy. Cross-origin requests with JSONP. AJAX polling. (Flanagan Chapter 18，19)
+
+```JavaScript
+var request = new XMLHttpRequest();
+request.open("GET","data.csv");
+request.setRequestHeader("Content-Type", "text/plain");
+request.send(null)
+```
+
+## jQuery Ajax
+1. load
+2. get, post
+
+```JavaScript
+jQuery.get("debug.txt",alert);
+```
+
+## FCC
+
 1. 请求，结果处理
 
 XMLHttpRequest请求，JSON，filter，forEach，getElementsByClassName，innerHTML设置

@@ -312,8 +312,84 @@ anArr.filter(filterFunc).map(mapFunc).reduce(reduceFunc);
 ## 箭头函数
 
 ES6函数式编程：箭头函数，不重新定义this
+
 ```JavaScript
 newArr = anArr.map((val, ind) => val*ind);
+```
+
+如果不bind的话，this会指向image，而不是Present这个class
+
+```JavaScript
+class Present {
+  constructor(containerElement, giftSrc) {
+    this.containerElement = containerElement;
+    this.giftSrc = giftSrc;
+
+    const image = document.createElement('img');
+    image.src = OUTSIDE_IMAGE_URL;
+		image.addEventListener('click', (function(event) {
+      const image = event.currentTarget;
+      image.src = this.giftSrc;
+    }).bind(this));
+    this.containerElement.append(image);
+  }
+}
+```
+
+但用箭头函数就没问题，因为箭头函数不改变this
+
+```js
+class Present {
+  constructor(containerElement, giftSrc) {
+    this.containerElement = containerElement;
+    this.giftSrc = giftSrc;
+
+    const image = document.createElement('img');
+    image.src = OUTSIDE_IMAGE_URL;
+		image.addEventListener('click', event => {
+      const image = event.currentTarget;
+      image.src = this.giftSrc;
+    });
+    this.containerElement.append(image);
+  }
+}
+```
+
+# currying：构造一个新函数，用输入参数部分实例化，然后返回。
+
+https://www.sitepoint.com/currying-in-functional-javascript/
+
+```js
+class Playlist {
+  constructor(name) {
+    this.playlistName = name;
+    this.songs = [];
+  }
+
+  addSong(songName) {
+    this.songs.push(songName);
+  }
+
+  createMatchFunction(songName) {
+    const findIndexFunction = function (element, index, array) {
+      return element.toLowerCase() === songName.toLowerCase();
+    }
+    return findIndexFunction;
+  }
+
+  removeSong(songName) {
+    const matchFunction = this.createMatchFunction(songName);
+    const index = this.songs.findIndex(matchFunction);
+    this.songs.shift(index, 1);
+  }
+}
+
+const playlist = new Playlist('More Life');
+playlist.addSong('Passionfruit');
+playlist.addSong('Fake Love');
+console.log(playlist);
+playlist.removeSong('passionfruit');
+console.log(playlist);
 ```
 
 ## 闭包closures

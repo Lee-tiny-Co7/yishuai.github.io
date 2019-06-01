@@ -175,3 +175,13 @@ let {name, age, salary} = obj;
 function render({name, age}) {
 }
 ```
+# 循环
+
+list.findIndex(callback, thisArg)
+
+callback(element, index, array)
+
+list.filter(func)
+list.every(func)
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array

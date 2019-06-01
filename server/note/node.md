@@ -1,3 +1,26 @@
+前面都是client编程。下面是服务器编程。
+
+服务器生成web page和各种资源。客户端显示出来。
+
+## 概念
+浏览器 - 操作系统 - HTTP request - TCP - Socket - HTTP response
+
+## 基础
+
+CS110: Principles of Computer Systems
+CS144: Introduction to Computer Networking (Prereq:
+CS110)
+
+## Node：Nodejs
+
+基于JS的服务器程序
+
+采用chrome的V8 JS理解器
+共用parser，execution engine，garbage collector，js runtime（stack，memory）
+
+不同的是：
+1. Chrome是DOM API，比如console.log()
+2. Node是NodeJS API，比如http.createServer()。没有document这种定义。但有console.log
 
 # Node.js
 
@@ -14,6 +37,13 @@ node hello.js
 npm安装包：npm install package_name
 也可以用package.json指定要安全的库
 
+npm: node package manager
+各种包：https://www.npmjs.com/
+npm install package-name
+npm uninstall package-name
+
+会把源码下载，安装到node_modules目录下。
+
 ```JavaScript
 var http = require("http");
 ```
@@ -22,6 +52,7 @@ var http = require("http");
 
 req：请求对象 request，包括了客户的请求
 res：响应对象 response，赋值，反馈给客户
+
 ```JavaScript
 var http = require('http');
 http.createServer(function (req, res) {
@@ -31,113 +62,172 @@ http.createServer(function (req, res) {
 console.log('Server running at http://127.0.0.1:1337/');
 ```
 
-## Web微框架：Express
-npm install express
-```JavaScript
-var express = require("express");		# load模块
-var app = express();								# 创建应用
-app.get("/", function(req, res) {		# 定义route，仅处理Get “/”的
-	res.send("Hello world!");
-	res.end();
-}).listen(1337);										# 开始侦听
-console.log('Server running at http://127.0.0.1:1337/');
+## 最基本的node web server
+
+on相当于addEventListener
+1. request：收到请求。req是输入信息，res接受我们的返回。end送回response
+2. listening：绑定（binding）端口，开始侦听，接受请求
+
+```js
+const http = require('http')
+const port = 3000
+const server = http.createServer()
+
+server.on('request', function(req, res) {
+  res.statusCode = 200
+  res.setHeader('Content-Type', 'text/plain')
+  res.end('Hello World\n')
+})
+
+server.on('listening', function() {
+  console.log(`Server running at http://${hostname}:${port}/`)
+})
+
+server.listen(port);
 ```
 
-## Route
+也可以更简洁
 
-```JavaScript
-var express = require("express");
-var app = express();
+```js
+const http = require('http')
+const port = 3000
 
-app.get("/hello", function(req, res) {
-	res.send("Hello!");
-	res.end();
-});
+const server = http.createServer((req, res) => {
+  res.statusCode = 200
+  res.setHeader('Content-Type', 'text/plain')
+  res.end('Hello World\n')
+})
 
-app.get("/world", function(req, res) {
-	res.send("World!");
-	res.end();
-});
-
-app.listen(1337);
-console.log('Server running at http://127.0.0.1:1337/');
+server.listen(port, () => {
+  console.log(`Server running at http://${hostname}:${port}/`)
+})
 ```
 
-## 参数
+用浏览器访问 http://localhost:3000 就可以了。
 
-运行下面代码，然后在浏览器访问http://127.0.0.1:1337/?name=John
-```JavaScript
-var express = require("express");
-var app = express();
-app.get("/", function(req, res) {
-	res.send("Hello, " + req.query.name + "!");
-	res.end();
-}).listen(1337);
-console.log('Server running at http://127.0.0.1:1337/');
-```
+## query方法
 
-## 静态文件
+三种
+1. 浏览器：Get
+2. fetch：送各种请求，包括Get，Post
+3. curl命令行工具：curl --request PUT http://localhost:3000/hello
 
-使用public作为默认目录，如果其他route没有匹配上，就在这里找静态文件
-在目录public下创建一个hello.html文件
-运行下面代码，然后在浏览器访问http://127.0.0.1:1337/hello.html
-```JavaScript
-var express = require("express");
-var ejs = require("ejs");
-app.use(express.static(__dirname + "/public"));			
-app.listen(1337);
-```
+然后就可以fetch了。
 
-## View
-指定模板，动态填充内容
-set选定ejs作为模板引擎
-render将数据greeting送入模板hello.ejs
+fetch('http://localhost:3000/hello')
+  .then(onResponse)
+  .then(onTextReady);
 
-```JavaScript
-var express = require("express");
-var app = express();
+## Get query参数
 
-app.set("view engine", "ejs");
-app.set("views", __dirname + "/views");
+参数存在：req.query里，比如
+req.query.name里面就存着“yishuai”
 
-app.get("/", function(req, res) {
-	res.render("hello", {"greeting": Hello world!});
-}).listen(1337);
+http://localhost:3000/hello?name=yishuai
 
-console.log('Server running at http://127.0.0.1:1337/');
-```
+## fetch POST 加参数，
 
-hello.ejs文件内容如下，其中 <%= greet %> 是需要替换的模板内容。
+但一般不这么用，而是在request的body里送data
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Hello World</title>
-	</head>
-	<body>
-		<h1><%= greet %></h1>
-	</body>
-</html>
+fetch('/hello?name=yishuai',{ method: 'POST'})
+  .then(onResponse)
+  .then(onTextReady);
 
-```
+# 练习
 
-# Ajax
+安装node.js：http://web.stanford.edu/class/cs193x/install-node/
 
-AJAX. Asynchronous communication. Callback functions. The get and post formats. Same-origin policy. Cross-origin requests with JSONP. AJAX polling. (Flanagan Chapter 18，19)
+# 开放其它电脑访问
 
-```JavaScript
-var request = new XMLHttpRequest();
-request.open("GET","data.csv");
-request.setRequestHeader("Content-Type", "text/plain");
-request.send(null)
-```
+用localtunnel：https://github.com/localtunnel/localtunnel
 
-## jQuery Ajax
-1. load
-2. get, post
+npm install -g localtunnel
+	-g：全局安装，只用于命令行
 
-```JavaScript
-jQuery.get("debug.txt",alert);
-```
+lt --port 3000
+
+后台各种服务器
+
+前台路由请求
+
+## 上传代码
+
+别upload node_modules目标。用package.json说明就行。
+用npm init生成package.json
+回答问题，自动生成
+包括：name，version，description，main，dependency，author，license
+然后，安装包的时候，用
+npm install --save express
+它会往package.json里加dependency
+npm install会根据这个文件，自动装这些package
+scripts里包括命令：可以用npm运行，比如，npm start
+
+## 异步事件处理
+
+两类异步事件
+1. click的回调函数
+2. fetch：不等着。结果回来了，再接着处理
+
+写出来的程序，不像普通的序列执行的代码，不好看。
+
+用async，await，可以写得像序列执行似的。
+await是等待一个promise
+
+源代码：
+function onJsonReady(json) {
+ console.log(json);
+}
+function onResponse(response) {
+	return response.json();
+}
+fetch('albums.json')
+    .then(onResponse)
+    .then(onJsonReady);
+
+新代码：
+
+async function loadJson() {
+	const response = await fetch('albums.json');
+	const json = await response.json();
+	console.log(json);
+}
+loadJson();
+
+构造器不能是async的。
+async函数可以作为参数送给
+1. addEventListener(Browser)
+2. on(NodeJS)
+3. get/put/delete/etc (ExpressJS)
+
+node7.5以后才支持async
+
+练习：
+sheet：getRows，appendRow, deleteRow都返回Promise
+
+## 模板literal
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+在字符串中加入表达式。更清晰。
+’port ${port}", 而不是 “port ” + port
+
+## 返回json
+
+res.json()
+
+练习：
+lec21/dictionary
+
+## post写本地文件
+
+两个库：
+
+npm install fs-extra
+
+1. fs：NodeJS API库，使用回调
+
+2. fs-extra 模块，操作文件系统，npm库，使用回调或者promise
+
+fse.writeJson(fileName, object);
+
+##
