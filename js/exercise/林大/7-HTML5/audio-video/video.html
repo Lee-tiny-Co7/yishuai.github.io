@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body>
+
+<div style="text-align:center;">
+  <p> 一起来录歌吧！Audacity入门 </p>
+  <video id="myVideo" width="420" style="margin-top:15px;">
+    <source src="audacity.mp4" type="video/mp4" />
+    浏览器不支持HTML5:video
+  </video>
+</div>
+
+<div style="text-align:center;">
+  <br>
+  <button onclick="playPause()">Play/Pause</button>
+</div>
+<script>
+  var v=document.getElementById("myVideo");
+  function playPause()
+  {
+    if (v.paused)
+      myVideo.play();
+    else
+      v.pause();
+  }
+</script>
+</body>
+</html>

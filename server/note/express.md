@@ -1,7 +1,9 @@
 # Express
 
 ## Web微框架：Express
+
 npm install express
+
 ```JavaScript
 var express = require("express");		# load模块
 var app = express();								# 创建应用
@@ -11,6 +13,23 @@ app.get("/", function(req, res) {		# 定义route，仅处理Get “/”的
 }).listen(1337);										# 开始侦听
 console.log('Server running at http://127.0.0.1:1337/');
 ```
+
+# ExpressJS
+语法： app.method(path, handler)
+
+Express routes
+
+```js
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => res.send('Hello World!'))
+app.post('/hello', (req, res) => res.send('POST World!'))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+```
+
+http://localhost:3000/hello
 
 ## Route
 
@@ -36,7 +55,7 @@ console.log('Server running at http://127.0.0.1:1337/');
 
 route参数：
 
-1. 用?标识，会在req.query里.
+### 用?标识，会在req.query里.
 
 运行下面代码，然后在浏览器访问http://127.0.0.1:1337/?name=John&type=movie
 
@@ -52,7 +71,7 @@ console.log('Server running at http://127.0.0.1:1337/');
 
 app.get('')
 
-2. 用:标识，会在req.params里.
+### 用:标识，会在req.params里.
 
 https://expressjs.com/en/guide/routing.html
 
@@ -64,9 +83,6 @@ app.get("/hello/:name", function(req, res) {
 });
 ```
 
-
-https://expressjs.com/en/guide/routing.html
-
 可以有多个Route参数
 
 运行下面代码，然后在浏览器访问http://127.0.0.1:1337/hello/yishuai-yongxiang
@@ -77,9 +93,11 @@ app.get("/hello/:from-:to", function(req, res) {
 });
 ```
 
+https://expressjs.com/en/guide/routing.html
+
 ## 用body送数据到服务器
 
-用query参数送数据，风格poor。应该在fetch里放到message的body里。
+用query参数送数据，不好。放到message的body里。
 
 ```js
 const message = {
@@ -99,7 +117,7 @@ fetch('/helloemail', fetchOptions)
   .then(onTextReady);
 ```
 
-服务器解析
+## 服务器解析
 
 自己解析比较麻烦
 
@@ -120,9 +138,11 @@ app.post('/helloemail', function (req, res) {
 });
 ```
 
-用body-parser库
+用body-parser库解析。
+
 先npm安装
-结果解析在req.body里
+
+解析后结果存在req.body里
 
 ```js
 const bodyParser = require('body-parser');
@@ -136,9 +156,9 @@ app.post('/helloparsed', jsonParser, function (req, res) {
 });
 ```
 
-## 使用方法
+## 推荐使用方法
 
-仅建议，不强制。
+仅建议，不强制，可不遵守。
 
 方法
 1. 读数据，用get
@@ -147,14 +167,11 @@ app.post('/helloparsed', jsonParser, function (req, res) {
 参数
 1. 必须的参数：用route parameter，/
 2. 可选参数、值有空格的参数：用query parameter，？
-但可以不遵守。
 
-练习：
-1. 斯坦福/lec20
+## Public目录，提供静态文件
 
-## 静态文件
+使用public作为默认目录：如果其他route没有匹配上，就在这里找静态文件
 
-使用public作为默认目录，如果其他route没有匹配上，就在这里找静态文件
 在目录public下创建一个hello.html文件
 
 运行下面代码，然后在浏览器访问http://127.0.0.1:1337/hello.html
@@ -164,13 +181,45 @@ app.post('/helloparsed', jsonParser, function (req, res) {
 ```JavaScript
 var express = require("express");
 var ejs = require("ejs");
+
 app.use(express.static(__dirname + "/public"));			
+// app.use(express.static('public'))
+
 app.listen(1337);
 ```
 
-## View
+## View：模板
+
 指定模板，动态填充内容
-set选定ejs作为模板引擎
+
+### Handlebars模板引擎
+
+const exphbs  = require('express-handlebars');
+...
+const app = express();
+const hbs = exphbs.create();
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+layout
+
+### ejs模板引擎
+
+作为模板的hello.ejs文件内容如下，其中 <%= greet %> 是需要替换的模板内容。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Hello World</title>
+	</head>
+	<body>
+		<h1><%= greet %></h1>
+	</body>
+</html>
+```
+
 render将数据greeting送入模板hello.ejs
 
 ```JavaScript
@@ -187,57 +236,8 @@ app.get("/", function(req, res) {
 console.log('Server running at http://127.0.0.1:1337/');
 ```
 
-hello.ejs文件内容如下，其中 <%= greet %> 是需要替换的模板内容。
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Hello World</title>
-	</head>
-	<body>
-		<h1><%= greet %></h1>
-	</body>
-</html>
-```
-
-# ExpressJS
-语法： app.method(path, handler)
-
-Express routes
+## 允许跨域访问（CORS）
 
 ```js
-const express = require('express')
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => res.send('Hello World!'))
-
-app.post('/hello', (req, res) => res.send('POST World!'))
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-```
-
-http://localhost:3000/hello
-
-## server静态数据
-
-Public目录
-
-app.use(express.static('public'))
-
-斯坦福/lec19
-
-## server允许CORS
-
 res.header('Access-Control-Allow-Origin', '*');
-
-## Handlebars
-
-const exphbs  = require('express-handlebars');
-...
-const app = express();
-const hbs = exphbs.create();
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+```

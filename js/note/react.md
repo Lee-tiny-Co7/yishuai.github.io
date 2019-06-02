@@ -2,46 +2,56 @@
 
 很轻量级的前端框架。和Redux配合，用Redux存全局状态。
 
-用 https://github.com/facebookincubator/create-react-app
+工具：建议用 https://github.com/facebookincubator/create-react-app
 
-文档很难看，看这个视频：
+文档很难看。建议看这个学习视频：
 https://egghead.io/courses/getting-started-with-redux
 
 新的标签语言JSX，方便事件监听和动态更新数据。
 
-48个FCC，5.5小时
+这部分包括48个FCC，需要时间5.5小时左右。
 
-知识点：
+## 基础
 
-1. Basic，13个，1小时
+13个FCC，1小时
 
 知识点：JSX，注释，渲染，ClassName，自动闭合，创建函数组件，React组件，组件组合，嵌套
 
-2. Props参数，7个，1小时
+## Props参数
+
+7个FCC，1小时
 
 将 Props 传递给无状态函数组件
 
 知识点：输入，数组输入，默认值，检验输入类型，this.props
 
-3. 有状态的组件，9个，1小时
+## 有状态的组件
+
+9个FCC，1小时
 
 创建一个有状态的组件
 
 知识点：初始化state，访问state，编写程序，setState, 绑定this
 
-4. 应用：6个，1小时
+## 使用State切换元素
+
+6个FCC，1小时
 
 使用 State 切换元素
 
 知识点：状态操作和UI更新，input，textarea，form，阻止默认刷新，传递state和函数，
 
-5. 生命周期钩子: 5个，0.5小时
+## 生命周期钩子
+
+5个FCC，0.5小时
 
 React：使用生命周期方法
 
 知识点：WillMount，DidMount (api调用，keydown捕获), WillReceiveProps（）, WillUpdate, DidUpdate, shouldComponentUpdate,
 
-6. 有条件渲染：12个，1小时
+## 有条件渲染
+
+12个FCC，1小时
 
 介绍内联样式
 
@@ -49,15 +59,15 @@ React：使用生命周期方法
 
 # Redux
 
-17个，2小时
+Redux管住全局状态。
 
-1. 基础
+这部分17个FCC，2小时
+
+## 基础
 
 知识点：Store，state，action，event dispatch，reducer修改状态，action type, subscribe监听器，组合reducer，action.text, 处理异步操作
 
-2. 练习
-
-用 Redux 写一个计数器
+## 练习：用 Redux 写一个计数器
 
 ```js
 const INCREMENT = 'INCR'; // 为增量 action 类型定义一个常量
@@ -85,23 +95,27 @@ store.dispatch(decAction());
 console.log(store.getState())
 ```
 
-3. 永不改变状态
+## 永不改变状态
 
-永不改变状态
+Redux把状态完全屏蔽，外面的代码不能直接改变状态。所以，必须通过return来设定状态。由此，需要一些技巧。
 
-...spread, slice, concate数组操作；Object.assign
+利用的方法：...spread, slice, concate数组操作；Object.assign
 
-
+```js
 return state.concat(action.todo);
 
 return [...state, action.todo];
+```
 
 # React 和 Redux
 
 React：渲染，Redux：管理状态
-Redux的state和dispatch作为props送给React
 
-1. React 和 Redux：首先在本地管理状态
+需要把Redux的state和dispatch作为props送给React
+
+FCC练习：
+
+## 首先在本地管理状态
 
 ```js
 class DisplayMessages extends React.Component {
@@ -141,7 +155,7 @@ class DisplayMessages extends React.Component {
 };
 ```
 
-2. 提取状态逻辑给 Redux
+## 提取状态逻辑给Redux
 
 ```js
 // 请在此处定义 ADD、addMessage()、messageReducer()、store：
@@ -165,7 +179,7 @@ const messageReducer = (state = [], action) => {
 const store = Redux.createStore(messageReducer);
 ```
 
-3. 使用 Provider 连接 Redux 和 React
+## 使用Provider连接Redux和React
 
 ```js
 // Redux 代码：
@@ -190,12 +204,9 @@ const messageReducer = (state = [], action) => {
   }
 };
 
-
-
 const store = Redux.createStore(messageReducer);
 
 // React 代码：
-
 class DisplayMessages extends React.Component {
   constructor(props) {
     super(props);
@@ -242,7 +253,6 @@ class DisplayMessages extends React.Component {
 const Provider = ReactRedux.Provider;
 
 class AppWrapper extends React.Component {
-  // 在此渲染 Provider
   render(){
       return (
         <div>
@@ -252,17 +262,14 @@ class AppWrapper extends React.Component {
         </div>
       )
   }
-  // 请在本行以上添加你的代码
 };
-
 ```
 
-4. 映射State到Props
+## 映射State到Props
 
 ```js
 const state = [];
 
-// 请在本行以下添加你的代码
 const mapStateToProps = (state) => {
     return {
         messages: state
@@ -270,7 +277,7 @@ const mapStateToProps = (state) => {
 }
 ```
 
-5. 映射Dispatch到Props
+## 映射Dispatch到Props
 
 ```js
 const addMessage = (message) => {
@@ -280,7 +287,6 @@ const addMessage = (message) => {
   }
 };
 
-// 请在本行以下添加你的代码
 const mapDispatchToProps = (dispatch) => {
   return {
     submitNewMessage: function(message) {
@@ -290,10 +296,9 @@ const mapDispatchToProps = (dispatch) => {
 };
 ```
 
-6. connect React Redux
+## 连接React和Redux
 
 ```js
-
 const addMessage = (message) => {
   return {
     type: 'ADD',
@@ -325,11 +330,10 @@ class Presentational extends React.Component {
 };
 
 const connect = ReactRedux.connect;
-// 请在本行以下添加你的代码
 const ConnectedComponent = connect(mapStateToProps, mapDispatchToProps)(Presentational);
 ```
 
-7. Redux连接到App
+## 把Redux连接到App
 
 ```js
 // Redux:
@@ -433,7 +437,7 @@ class AppWrapper extends React.Component {
 };
 ```
 
-8. state转移到Redux中
+## state转移到Redux中
 
 ```js
 // Redux:
@@ -464,7 +468,6 @@ const store = Redux.createStore(messageReducer);
 const Provider = ReactRedux.Provider;
 const connect = ReactRedux.connect;
 
-// 请在本行以下添加你的代码
 class Presentational extends React.Component {
   constructor(props) {
     super(props);
@@ -505,7 +508,6 @@ class Presentational extends React.Component {
     );
   }
 };
-// 请在本行以上添加你的代码
 
 const mapStateToProps = (state) => {
   return {messages: state}
@@ -532,29 +534,31 @@ class AppWrapper extends React.Component {
 };
 ```
 
-9. End
+## 回顾
+
+从'react'导入 React
+从'react-dom'导入 ReactDOM
+从'react-redux'导入{ Provider, connect }
+从'redux'导入{ createStore, combineReducers, applyMiddleware }
+从'redux-thunk'导入 thunk
+
+从'./redux/reducers'导入 rootReducer
+从'./components/App'导入 App
 
 ```js
-// 从'react'导入 React
-// 从'react-dom'导入 ReactDOM
-// 从'react-redux'导入{ Provider, connect }
-// 从'redux'导入{ createStore, combineReducers, applyMiddleware }
-// 从'redux-thunk'导入 thunk
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+);
 
-// 从'./redux/reducers'导入 rootReducer
-// 从'./components/App'导入 App
-
-// const store = createStore(
-//   rootReducer,
-//   applyMiddleware(thunk)
-// );
-
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App/>
-//   </Provider>,
-//   document.getElementById('root')
-// );
-
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>,
+  document.getElementById('root')
+);
 ```
+
+## codepen支持React
+
 在 CodePen 中启用 Babel 作为 JavaScript 预处理器，将 React 和 ReactDOM 添加为外部 JavaScript 资源，在那里编写应用。

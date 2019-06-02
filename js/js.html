@@ -32,7 +32,7 @@
         <li><strong>学习</strong>：看视频，记笔记，做讲解，更新学习之路。这样做的目的是：建立一个知识框架。听课其实是最高效的学习方法，因为老师对教学内容进行了梳理，建立了各内容之间的逻辑联系，
           所以，听课是最简单高效的学习方法。
           视频以林大为主，因为林大老师的讲解、PPT、示例代码都给得比较细，比较清楚，容易上手。
-          但林大有些重要内容没有讲，比如弹性盒子、CSS网格，而清华讲了，所以，这几个部分就看清华视频。</li>
+          但林大有些重要内容没有讲，比如React，而清华讲了，所以，这几个部分就看清华视频。</li>
         <li><strong>练习</strong>：FCC的练习非常好。每一关都会介绍一个小的知识点，然后通过练习掌握。它的内容也很新，很实战。注意：不建议跳过第一步的看视频，而直接做FCC练习，这是
           因为我们需要通过视频，建立知识框架，获得总体认识，这有助于我们在做FCC练习时，明白自己在学习之路的哪个位置。</li>
         <li><strong>实战</strong>：学习和练习后，我们往往发现：代码能看懂，也有一个模糊的印象，但遇到一个实际问题（比如做一个网站），还是不知道如何做。所以，需要大量练习。这方面，我们通过作业完成。
@@ -43,17 +43,19 @@
       <h2> <a name="#">学习内容</a></h2>
 
       <h3> <a name="index">目录</a></h3>
-      <ul>
+      <ol>
           <li> <a href="#material">学习材料</a> </li>
           <li> <a href="#basic">Javascript基础</a> </li>
-          <li> <a href="#ds">数组</a> </li>
-          <li> <a href="#func">函数式编程</li>
-          <li> <a href="#web">网页编程</a> </li>
-          <li> <a href="#lib">前端库</a> </li>
-          <li> <a href="#oob">面向对象Web编程 </li>
-          <li> <a href="#framework">前端框架</a> </li>
-          <li> <a href="#d3">D3和Ajax请求</a></h2>
-      </ul>
+          <li> <a href="#ds">数组、数据结构、正则表达式</a> </li>
+          <li> <a href="#func">函数与函数式编程</li>
+          <li> <a href="#web">网页DOM编程</a> </li>
+          <li> <a href="#lib">jQuery和Bootstrap</a> </li>
+          <li> <a href="#oob">面向对象 </li>
+          <li> <a href="#framework">Sass和React</a> </li>
+          <li> <a href="#d3">D3可视化</a></h2>
+          <li> <a href="#fetch">服务器请求与响应处理</a></h2>
+          <li> <a href="#video">HTML5多媒体</a></h2>
+      </ol>
 
       <a href="../index.html">返回主页</a>
       <h2> <a name="material"> 学习材料 </a></h2>
@@ -172,7 +174,7 @@
 
       <a href="#index">返回目录</a>
 
-      <h2> <a name="ds">数组</a></h2>
+      <h2> <a name="ds">数组、数据结构、正则表达式</a></h2>
       <table style="width:100%">
       <tr>
         <td>材料</td>
@@ -241,7 +243,7 @@
 
       <a href="#index">返回目录</a>
 
-      <h2> <a name="func">函数式编程</a></h2>
+      <h2> <a name="func">函数与函数式编程</a></h2>
       <table style="width:100%">
       <tr>
         <td>材料</td>
@@ -313,7 +315,7 @@
 
       <a href="#index">返回目录</a>
 
-      <h2> <a name="web">网页编程</a></h2>
+      <h2> <a name="web">网页DOM编程</a></h2>
       <table style="width:100%">
       <tr>
         <td>材料</td>
@@ -365,7 +367,7 @@
       </tr>
       </table>
 
-      <h2> <a name="lib">前端库</a></h2>
+      <h2> <a name="lib">jQuery和Bootstrap</a></h2>
       <table style="width:100%">
       <tr>
         <td>材料</td>
@@ -382,6 +384,8 @@
         <td>
           <ol>
               <li> <a href="note/jquery.html">JQuery</a> </li>
+              <li> <a href="note/bootstrap.html">Bootstrap</a> </li>
+
           </ol>
         </td>
       </tr>
@@ -390,8 +394,7 @@
         <td>
           <ol>
               <li> FCC：<a href=" https://learn.freecodecamp.one/front-end-libraries/jquery"> jQuery </a></li>
-              <li> FCC：<a href=" https://learn.freecodecamp.one/front-end-libraries/bootstrap"> Bootstrap </a>
-                注意：可能需要手工在代码最上方粘贴bootstrap css的链接，才会看到效果 </li>
+              <li> FCC：<a href=" https://learn.freecodecamp.one/front-end-libraries/bootstrap"> Bootstrap </a></li>
           </ol>
         </td>
       </tr>
@@ -439,7 +442,7 @@
 
       <a href="#index">返回目录</a>
 
-      <h2> <a name="oob">面向对象Web编程</a></h2>
+      <h2> <a name="oob">面向对象</a></h2>
       <table style="width:100%">
       <tr>
         <td>材料</td>
@@ -497,7 +500,7 @@
 
       <a href="#index">返回目录</a>
 
-      <h2> <a name="framework">前端框架</a></h2>
+      <h2> <a name="framework">Sass和React</a></h2>
       <table style="width:100%">
       <tr>
         <td>材料</td>
@@ -510,6 +513,8 @@
         <td>课件</td>
         <td>
           <ol>
+            <li> <a href="note/sass.html">SASS</a> </li>
+            <li> <a href="note/react.html">React</a> </li>
           </ol>
         </td>
       </tr>
@@ -519,6 +524,8 @@
           <ol>
               <li> FCC：<a href="https://learn.freecodecamp.one/front-end-libraries/sass"> Sass </a></li>
               <li> FCC：<a href="https://learn.freecodecamp.one/front-end-libraries/react"> React </a></li>
+              <li> FCC：<a href="https://learn.freecodecamp.one/front-end-libraries/redux"> Redux </a></li>
+              <li> FCC：<a href="https://learn.freecodecamp.one/front-end-libraries/react-and-redux"> React和Redux </a></li>
           </ol>
         </td>
       </tr>
@@ -539,9 +546,6 @@
           <td>
               <ol>
                 <li> 教程：<a href="https://zh-hans.reactjs.org/tutorial/tutorial.html">完成一个Tit-Tac-Toe</a></li>
-                <li> FCC：<a href="https://learn.freecodecamp.one/front-end-libraries/front-end-libraries-projects">前端库和框架项目实战</a></li>
-                <li> FCC：<a href="https://learn.freecodecamp.one/front-end-libraries/redux"> Redux </a>：高阶内容，不急，选修</li>
-                <li> FCC：<a href="https://learn.freecodecamp.one/front-end-libraries/react-and-redux"> React和Redux </a>：高阶内容，不急，选修</li>
               </ol>
            </td>
       </tr>
@@ -549,7 +553,7 @@
 
       <a href="#index">返回目录</a>
 
-      <h2> <a name="d3">D3和Ajax请求</a></h2>
+      <h2> <a name="d3">D3可视化</a></h2>
       <table style="width:100%">
       <tr>
         <td>材料</td>
@@ -562,6 +566,7 @@
         <td>课件</td>
         <td>
           <ol>
+            <li><a href="note/d3.html">D3</a></li>
           </ol>
         </td>
       </tr>
@@ -570,7 +575,6 @@
         <td>
           <ol>
               <li> FCC：<a href="https://learn.freecodecamp.one/data-visualization/data-visualization-with-d3">D3</a></li>
-              <li> FCC：<a href="https://learn.freecodecamp.one/data-visualization/json-apis-and-ajax">Ajax</a></li>
           </ol>
         </td>
       </tr>
@@ -578,25 +582,9 @@
         <td>实战</td>
         <td>
           <ol>
-            <li>D3</li>
-            <ol>
-              <li> FCC：<a href="exercise/FCC/9-bar/index.html">画出一个漂亮的GDP增长图</a></li>
-              <li> FCC：<a href="exercise/FCC/10-scatter/index.html">画出一个漂亮的散点图</a></li>
-              <li> FCC：<a href="exercise/FCC/11-map/index.html">画出一个漂亮的地图</a></li>
-            </ol>
-            <li>请求互联网信息（Ajax）</li>
-            <ol>
-              <li><a href="exercise/斯坦福/11-fetch/2-tts/index.html">文字转语音！</a></li>
-              <li><a href="exercise/斯坦福/11-fetch/3-musicplayer/demo.html">下载一个音乐来听</a></li>
-              <li><a href="exercise/斯坦福/11-fetch/4-musicbox/ElkaRavenwood/index.html">音乐盒</a></li>
-              <li> Mariah Carey音乐集：
-                  <a href="exercise/斯坦福/11-fetch/5-albums/fetch-text.html">函数方法1：文本</a>，
-                  <a href="exercise/斯坦福/11-fetch/5-albums/fetch-json.html">函数方法2：JSON</a>，
-                  <a href="exercise/斯坦福/11-fetch/6-oo-albums/index.html">面向对象方法</a>
-              </li>
-              <li><a href="exercise/斯坦福/11-fetch/8-quotemachine/index.html">名言警句永不停</a></li>
-              <li><a href="exercise/斯坦福/11-fetch/12-images-text/index.html">来几个动画吧</a></li>
-            </ol>
+            <li> FCC：<a href="exercise/FCC/9-bar/index.html">画出一个漂亮的GDP增长图</a></li>
+            <li> FCC：<a href="exercise/FCC/10-scatter/index.html">画出一个漂亮的散点图</a></li>
+            <li> FCC：<a href="exercise/FCC/11-map/index.html">画出一个漂亮的地图</a></li>
           </ol>
         </td>
       </tr>
@@ -605,6 +593,123 @@
           <td>
               <ol>
                   <!-- <li> 《JavaScript权威指南-第6版》第1-5章</li> -->
+                  <li><a href="https://bl.ocks.org/">各种酷炫D3作品</a></li>
+                  <li>canvas</li>
+                  <ol>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">MDN Canvas API</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">MDN WebGL API</a></li>
+                    <li><a href="https://vrk.github.io/space-invaders/">空间侵入者游戏</a></li>
+                    <li><a href="http://stars.chromeexperiments.com/">星空游戏</a></li>
+                  </ol>
+
+              </ol>
+           </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="fetch">服务器请求与响应处理</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>课件</td>
+        <td>
+          <ol>
+            <li><a href="note/ajax.html">服务器请求</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <li> FCC：<a href="https://learn.freecodecamp.one/data-visualization/json-apis-and-ajax">Ajax</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          <ol>
+            <li><a href="exercise/斯坦福/11-fetch/2-tts/index.html">文字转语音！</a></li>
+            <li><a href="exercise/斯坦福/11-fetch/3-musicplayer/demo.html">下载一个音乐来听</a></li>
+            <li><a href="exercise/斯坦福/11-fetch/4-musicbox/ElkaRavenwood/index.html">音乐盒</a></li>
+            <li> Mariah Carey音乐集：
+                <a href="exercise/斯坦福/11-fetch/5-albums/fetch-text.html">函数方法1：文本</a>，
+                <a href="exercise/斯坦福/11-fetch/5-albums/fetch-json.html">函数方法2：JSON</a>，
+                <a href="exercise/斯坦福/11-fetch/6-oo-albums/index.html">面向对象方法</a>
+            </li>
+            <li><a href="exercise/斯坦福/11-fetch/8-quotemachine/index.html">名言警句永不停</a></li>
+            <li><a href="exercise/斯坦福/11-fetch/12-images-text/index.html">来几个动画吧</a></li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+          <td>参考材料</td>
+          <td>
+              <ol>
+                  <li> 《JavaScript权威指南-第6版》第18，19章</li>
+              </ol>
+           </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="video">HTML5多媒体</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>课件</td>
+        <td>
+          <ol>
+            <!-- <li><a href="note/d3.html">D3</a></li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/data-visualization/data-visualization-with-d3">D3</a></li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          <ol>
+            <li> 开启摄像头:
+                <a href="exercise/斯坦福/11-fetch/13-capvideo/capvideo1.html">回调函数方法</a>，
+                <a href="exercise/斯坦福/11-fetch/13-capvideo/cap2.html">Promise方法</a></li>
+            <li> <a href="exercise/林大/7-HTML5/audio-video/audio.html">听音乐</a></li>
+            <li> <a href="exercise/林大/7-HTML5/audio-video/video.html">看视频</a></li>
+            <li> <a href="exercise/林大/7-HTML5/canvas/line.html">画线</a></li>
+            <li> <a href="exercise/林大/7-HTML5/canvas/draw/index.html">画图板</a></li>
+            <li> <a href="exercise/林大/7-HTML5/tag.html">HTML5新元素</a></li>
+
+          </ol>
+        </td>
+      </tr>
+      <tr>
+          <td>参考材料</td>
+          <td>
+              <ol>
+                  <!-- <li> 《JavaScript权威指南-第6版》第1-5章</li> -->
+                  <!-- <li><a href="https://bl.ocks.org/">各种酷炫D3作品</a></li> -->
               </ol>
            </td>
       </tr>
@@ -620,7 +725,7 @@
           <!-- <li>  <a href="https://www.imooc.com/course/list?c=fe">慕课网教程</a></li> -->
       </ol>
 
-      <a href="index.html">返回主页</a>
+      <a href="../index.html">返回主页</a>
 
     </body>
 </html>

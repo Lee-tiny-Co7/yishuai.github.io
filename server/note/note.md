@@ -1,8 +1,6 @@
 
 # Babel
 
-别用JQuery，用Babeljs
-https://babeljs.io/en/repl
 
 
 ```JavaScript
@@ -24,7 +22,6 @@ Same-origin policy. Cross-site scripting attacks (reflected and persisted). Cook
 
 # d3
 
-Data visualization. Drawing graphics using SVG. Selections with select and selectAll. Adding and deleting elements with enter and exit. Binding data with data. Animation with transition.
 
 ```JavaScript
 

@@ -1,11 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>实务学堂Web前端开发 - 服务器端</title>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              text-align: left;
+            }
+            /* tr:nth-child(odd){
+                background-color: #cff;
+                /*color: white;*/
+            } */
+            .neirong {
+                background-color:yellow;
+            }
+            #zuiqiang{
+                background-color:red;
+            }
+        </style>
+    </head>
 
-      <h2> <a name="api">API和微服务</a></h2>
+    <body>
+
+      <h1>学习路线 - 服务器端</h1>
+
+      <p>下面的学习路线从浅至深，建议按下面顺序依次进行学习。</p>
+
+      <p>在每一部分学习中，建议按以下步骤认真进行：
+      <ol>
+        <li><strong>学习</strong>：看视频，记笔记，做讲解，更新学习之路。这样做的目的是：建立一个知识框架。听课其实是最高效的学习方法，因为老师对教学内容进行了梳理，建立了各内容之间的逻辑联系，
+          所以，听课是最简单高效的学习方法。
+          视频以林大为主，因为林大老师的讲解、PPT、示例代码都给得比较细，比较清楚，容易上手。
+          但林大有些重要内容没有讲，比如服务器，而清华讲了，所以，这几个部分就看清华视频。</li>
+        <li><strong>练习</strong>：FCC的练习非常好。每一关都会介绍一个小的知识点，然后通过练习掌握。它的内容也很新，很实战。注意：不建议跳过第一步的看视频，而直接做FCC练习，这是
+          因为我们需要通过视频，建立知识框架，获得总体认识，这有助于我们在做FCC练习时，明白自己在学习之路的哪个位置。</li>
+        <li><strong>实战</strong>：学习和练习后，我们往往发现：代码能看懂，也有一个模糊的印象，但遇到一个实际问题（比如做一个网站），还是不知道如何做。所以，需要大量练习。这方面，我们通过作业完成。
+          所以我们要高度重视我们的作业。完成的作业作品，可依次放到我们的作品主页上。</li>
+      </ol>
+      </p>
+
+      <h2> <a name="#">学习内容</a></h2>
+
+      <h3> <a name="index">目录</a></h3>
+      <ol>
+          <li> <a href="#material">学习材料</a> </li>
+      </ol>
+
+      <a href="../index.html">返回主页</a>
+      <h2> <a name="material"> 学习材料 </a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>图书</td>
+        <td>
+          <ol>
+              <!-- <li> 图书：JavaScript The Good Parts - 中文版 《Javascript语音精粹》</li>
+              <li> 图书：JavaScript The Definitive Guid - 中文版 《JavaScript权威指南-第6版》</li>
+              <li> 图书：Professional JavaScript for Web developers - 中文版 《Javascript高级程序设计（第3版）》</li>
+              <li> 图书：You Don't Know JS: <a href="https://github.com/getify/You-Dont-Know-JS">Github</a>，<a href="https://github.com/getify/You-Dont-Know-JS/tree/1ed-zh-CN">中文版</a></li>
+              <li> 教程：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide">MDN JS指南</a>  </li>
+              <li> 教程：<a href="https://javascript.info/">The Modern JavaScript Tutorial</a></li>
+              <li> 教程：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/A_re-introduction_to_JavaScript">MDN：重新介绍 Java​Script（JS 教程）</a>  </li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战参考代码</td>
+        <td>
+            <ol>
+                <li>  参考代码：<a href="https://github.com/yishuai/yishuai.github.io/tree/master/">Github</a>（exercise目录）</li>
+                <li>  克隆命令：git clone https://github.com/yishuai/yishuai.github.io.git</li>
+            </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>视频</td>
+        <td>
+          <ol>
+              <!-- <li> 北京林业大学， <a href="https://www.icourse163.org/learn/BJFU-1003382003?tid=1003609002#/learn/content">《Web学习之路前端开发》</a> </li> -->
+              <li> 清华大学， <a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+44100343X+2019_T1"> 《Web前端攻城狮》</a></li>
+          </ol>
+        </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="node">NodeJS和Express</a></h2>
       <table style="width:100%">
       <tr>
         <td>材料</td>
         <td>
           <ol>
-              <li>林大第6章《Javascript基础》，仅需看6.1到6.7节</li>
+              <!-- <li>林大第6章《Javascript基础》，仅需看6.1到6.7节</li> -->
           </ol>
         </td>
       </tr>
@@ -13,7 +100,8 @@
         <td>课件</td>
         <td>
           <ol>
-              <li> <a href="note/node.html">Node.js</a> </li>
+              <li> <a href="note/node.html">NodeJS</a> </li>
+              <li> <a href="note/express.html">Express</a> </li>
           </ol>
         </td>
       </tr>
@@ -21,8 +109,80 @@
         <td>练习</td>
         <td>
           <ol>
-              <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/managing-packages-with-npm">npm</a></li>
               <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/basic-node-and-express">Node和Express基础</a></li>
+              <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/managing-packages-with-npm">npm</a></li>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/mongodb-and-mongoose">MongoDB</a></li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战:</td>
+        <td>
+          请安装完NodeJS后，在终端命令行中，cd进入server/exercise/1-express目录下的相应目录，运行node server.js，进行试验。
+          <ul>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/apis-and-microservices-projects">实战</a> </li> -->
+              <li> 1-node-scripts: 基本JS练习  </li>
+              <li> 1-node-server: 原生Node Web Server </li>
+              <li> 2-express-server: Express Web Server 1 </li>
+              <li> 2-express-server-2: Express Web Server 2 </li>
+              <li> 3-express-routes: Express Route </li>
+              <li> 4-server-with-cors: Server支持CORS跨域访问 </li>
+              <li> 4-server-with-static-files: Public静态文件 </li>
+              <li> 5-fetch-to-server: Fetch </li>
+              <li> 6-query-params: Query参数 </li>
+              <li> 6-route-params: Route参数 </li>
+              <li> 6-post-simple: 简单POST </li>
+              <li> POST Body：
+                <ul>
+                  <li> 7-post-body-no-parser: 不Parse </li>
+                  <li> 7-post-body-with-parser: Parse </li>
+                  <li> 7-post-body-with-parser-package-json: Parse库 </li>
+                </ul>
+              <li> 8-async-await-examples:  </a>Async-Await</li>
+              <li> 你的字典：
+                <ul>
+                  <li>9-dictionary-v1-return-text: 返回文本</a></li>
+                  <li> 9-dictionary-v2-return-json: 返回JSON </li>
+                  <li> 9-dictionary-v3-support-post: 支持POST </li>
+                </ul>
+              <li> 10-tit-tat-multiple-user: Tit-Tat多人游戏！</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+          <td>参考材料</td>
+          <td>
+              <ol>
+                  <!-- <li> 《JavaScript权威指南-第6版》第1-5章</li> -->
+              </ol>
+           </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="db">MongoDB数据库</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+              <!-- <li>林大第6章《Javascript基础》，仅需看6.1到6.7节</li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>课件</td>
+        <td>
+          <ol>
+              <li> <a href="note/mongo.html">MongoDB</a> </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
               <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/mongodb-and-mongoose">MongoDB</a></li>
           </ol>
         </td>
@@ -30,15 +190,75 @@
       <tr>
         <td>实战</td>
         <td>
-          <ol>
-              <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/apis-and-microservices-projects">实战</a> </li>
+          请安装完NodeJS后，在终端命令行中，cd进入server/exercise/2-mongodb目录下的相应目录，运行node server.js，进行试验。
+          <ul>
+            <li>1-mongodb-scripts: 基本MongoDB语法</li>
+            <li>2-load-dict-script: 初始化字典数据库</li>
+            <li>字典</li>
+            <ul>
+              <li>4-dictionary-spa: 单页</li>
+              <li>3-dictionary-server-side: 基于模板</li>
+              <li>3-dictionary-server-side-starter: 基于模板起始代码</li>
+              <li>4-dictionary-with-mongodb: 数据库 </li>
+            </ul>
+            <li>贺卡</li>
+            <ul>
+              <li>5-ecard-spa: 单页</li>
+              <li>5-ecard-server-side: 基于模板</li>
+              <li>5-ecard-write: 可存储</li>
+            </ul>
+            <li>6-diary: 日记</li>
+            <li>7-peep-notes: 笔记</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+          <td>参考材料</td>
+          <td>
               <ol>
-                  <li>时间戳</li>
-                  <li>请求头解析器</li>
-                  <li>短网址</li>
-                  <li>运动跟踪器</li>
-                  <li>文件元数据</li>
+                  <!-- <li> 《JavaScript权威指南-第6版》第1-5章</li> -->
               </ol>
+           </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="archi">代码结构</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+              <!-- <li>林大第6章《Javascript基础》，仅需看6.1到6.7节</li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>课件</td>
+        <td>
+          <ol>
+              <li> <a href="note/archi.html">代码结构</a> </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/mongodb-and-mongoose">MongoDB</a></li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          请安装完NodeJS后，在终端命令行中，cd进入server/exercise/3-modules目录下的相应目录，运行node server.js，进行试验。
+          <ol>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/apis-and-microservices-projects">实战</a> </li> -->
+              <li>1-simple-modules: 简单模块</li>
+              <li>2-simple-middleware: 简单中间件</li>
+              <li>3-dictionary-with-routes: 代码重构的字典</li>
           </ol>
         </td>
       </tr>
@@ -46,8 +266,136 @@
           <td>参考材料</td>
           <td>
               <ol>
-                  <li> 《JavaScript权威指南-第6版》第1-5章</li>
+                  <!-- <li> 《JavaScript权威指南-第6版》第1-5章</li> -->
               </ol>
            </td>
       </tr>
       </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="user">用户验证</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+              <!-- <li>林大第6章《Javascript基础》，仅需看6.1到6.7节</li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>课件</td>
+        <td>
+          <ol>
+              <li> <a href="note/user.html">用户验证</a> </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/mongodb-and-mongoose">MongoDB</a></li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          请安装完NodeJS后，在终端命令行中，cd进入server/exercise/4-user目录下的相应目录，运行node server.js，进行试验。
+          <ol>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/apis-and-microservices-projects">实战</a> </li> -->
+              <li>1-cross-stitch: 十字绣</li>
+              <li>2-TriviaPlay: 一起玩游戏</li>
+              <li>3-weeknotes: 周记</li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+          <td>参考材料</td>
+          <td>
+              <ol>
+                  <!-- <li> 《JavaScript权威指南-第6版》第1-5章</li> -->
+              </ol>
+           </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h2> <a name="mixed">综合</a></h2>
+      <table style="width:100%">
+      <tr>
+        <td>材料</td>
+        <td>
+          <ol>
+              <!-- <li>林大第6章《Javascript基础》，仅需看6.1到6.7节</li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>课件</td>
+        <td>
+          <ol>
+              <li> <a href="note/next.html">信息与指南</a>： </li>
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>练习</td>
+        <td>
+          <ol>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/mongodb-and-mongoose">MongoDB</a></li> -->
+          </ol>
+        </td>
+      </tr>
+      <tr>
+        <td>实战</td>
+        <td>
+          <ul>
+              <!-- <li> FCC：<a href="https://learn.freecodecamp.one/apis-and-microservices/apis-and-microservices-projects">实战</a> </li> -->
+              <li>Websocket：请安装完NodeJS后，在终端命令行中，cd进入server/exercise/5-websocket目录下的相应目录，运行node server.js，进行试验。</li>
+              <li>React：请安装完NodeJS后，在终端命令行中，cd进入server/exercise/6-react目录下的相应目录，运行node server.js，进行试验。</li>
+                            实战
+              <li>FCC实战</li>
+              <ul>
+                <li><a href="https://glitch.com/edit/#!/purple-paladin"> 1 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/fuschia-custard"> 2 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/thread-paper"> 3 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/dandelion-roar"> 4 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/curse-arrow"> 5 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/hard-twilight"> 6 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/protective-garage"> 7 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/spark-cathedral"> 8 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/giant-chronometer"> 9 </a> </li>
+                <li><a href="https://glitch.com/edit/#!/horn-celery"> 10 </a> </li>
+                <li><a href="https://learn.freecodecamp.one/coding-interview-prep/take-home-projects"> </a> </li>
+            </ul>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+          <td>参考材料</td>
+          <td>
+              <ol>
+                  <!-- <li> 《JavaScript权威指南-第6版》第1-5章</li> -->
+              </ol>
+           </td>
+      </tr>
+      </table>
+
+      <a href="#index">返回目录</a>
+
+      <h1> 参考材料 </h1>
+      <ol>
+        <li>  <a href="https://developer.mozilla.org/zh-CN"> MDN开发者文档 </a> </li>
+          <li>  <a href="http://www.w3school.com.cn/tags/index.asp"> W3cshool手册 </a>  </li>
+          <!-- <li>  <a href="http://wiki.jikexueyuan.com/">极客学院教程</a></li> -->
+          <!-- <li>  <a href="https://www.imooc.com/course/list?c=fe">慕课网教程</a></li> -->
+      </ol>
+
+      <a href="../index.html">返回主页</a>
+
+    </body>
+</html>
