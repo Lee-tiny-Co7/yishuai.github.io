@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: monospace;
+  font-size: 24pt;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+#foreground,
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#foreground {
+  z-index: 10;
+}
+
+#world-container {
+  position: relative;
+}
+
+#controls button {
+  background-color: slateblue;
+  border: 2px solid darkslateblue;
+  color: white;
+  font-family: monospace;
+  margin: 5px;
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}

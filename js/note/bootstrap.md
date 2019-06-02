@@ -1,5 +1,7 @@
 # Bootstrap
 
+不推荐用。因为很重。不灵活。很难debug。建议用CSS flexbox和grid。
+
 FCC Bootstrap可能不会出现应有的效果。那么，就把下面两行，手工加到代码的最上面，即可。
 
 ```html

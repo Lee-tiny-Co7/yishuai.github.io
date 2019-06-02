@@ -230,4 +230,51 @@ npm install fs-extra
 
 fse.writeJson(fileName, object);
 
-##
+## 模块
+
+定义自己的NodeJS模块
+https://nodejs.org/api/modules.html#modules_the_module_object
+
+一个模块，是一个JS文件
+
+可以用 require('./mod1.js') 直接包进去。要加.，否则会去node_modules里面去找。
+https://nodejs.org/api/modules.html#modules_all_together
+
+模块是一个特别的对象。require函数会返回JS文件中用module.exports设置的值。其它都是private的。所以，如果JS里面有全局变量的话，它会保持这个状态。比如let i = 0，然后在外面加1三次，它就会变成3。这个要注意。
+
+练习：
+simple-modules
+Try loading the other modules (e.g. function-module.js) by changing the require statement in scripts.js.
+
+## 中间件：路由
+
+把JSON API请求，独立出来，作为一个中间件（Middleware）
+
+1. 定义Router对象
+
+在api.js里定义，并导出router
+
+const express = require('express');
+const router = express.Router();
+
+async function onLookupWord(req, res) {
+router.get('/lookup/:word', onLookupWord);
+
+module.exports = router;
+
+在server.js里用app.use(router)用这个route。
+
+2. 中间件里要访问MongoDB
+
+定义Middleware函数，三个参数：req，res，next
+如果res.send, res.json，就不必call next了。
+可以给req加新属性，把collection给它，在后面的Middleware里就能访问collection了。
+
+app.get
+app.use
+
+Express documentation:
+- Router： https://expressjs.com/en/4x/api.html#router
+- Writing / Using Middleware
+	https://expressjs.com/en/guide/writing-middleware.html
+	https://expressjs.com/en/guide/using-middleware.html

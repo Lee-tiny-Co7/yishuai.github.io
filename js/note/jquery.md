@@ -1,6 +1,8 @@
 # jQuery
 
-不建议用。但需要能够读懂。因为曾经很流行。
+不建议用，因为它的功能现在基本可以用JS自身的功能（document.querySelector, classList, ES6 classes, CSS动画）实现了。
+
+但需要能够读懂。因为曾经很流行。
 
 Overview of jQuery. Cross-browser compatibility. The $ function object. Element selectors. Tree traversal. Node creation, insertion, modification and deletion. Getting and setting attributes, styles and class. Wrapping and unwrapping DOM raw objects. The chaining pattern. (Flanagan Chapter 19)
 

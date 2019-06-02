@@ -1,0 +1,34 @@
+{
+  "collections": {
+    "users": [
+      {
+        "_id": 111,
+        "name": "Audrey Two",
+        "email": "twooey@lsoh.com",
+        "peeps": [
+          {
+            "_id": 123
+          },
+          {
+            "_id": 456
+          }
+        ]
+      },
+      {
+        "_id": 222,
+        "name": "Solange Knowles",
+        "email": "sol@nge.com",
+        "peeps": [
+          {
+            "_id": 789
+          }
+        ]
+      },
+      {
+        "_id": 333,
+        "name": "Lady Bunny",
+        "email": "r@bb.it"
+      }
+    ]
+  }
+}

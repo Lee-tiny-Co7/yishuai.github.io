@@ -1,9 +1,0 @@
-[ignore]
-<PROJECT_ROOT>/node_modules/react/node_modules/fbjs/.*
-<PROJECT_ROOT>/client/node_modules/react/node_modules/fbjs/.*
-
-[include]
-
-[libs]
-
-[options]

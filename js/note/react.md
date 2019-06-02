@@ -1,5 +1,12 @@
 # React
 
+很轻量级的前端框架。和Redux配合，用Redux存全局状态。
+
+用 https://github.com/facebookincubator/create-react-app
+
+文档很难看，看这个视频：
+https://egghead.io/courses/getting-started-with-redux
+
 新的标签语言JSX，方便事件监听和动态更新数据。
 
 48个FCC，5.5小时

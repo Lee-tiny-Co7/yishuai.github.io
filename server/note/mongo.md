@@ -148,7 +148,46 @@ db.collection('words').updateOne(
 
 ## Saving data
 
-练习：
+## 练习：
+
+https://github.com/yayinternet/mongodb-examples
+
+### 导入字典数据
+
+进入 load-dict-script/ 目录
+$ mongoimport --db eng-dict2 --collection words --file formatted-dictionary.json
+
+"imported 28035 documents"
+
+### 服务器端Render示例
+
+用Handlebars模板
+
+示例：dictionary-server-side
+每个单词有自己的页面，如：http://localhost:3000/dog
+
+在终端中运行：mongod，别关
+在另一个终端中，进入目录，npm install，npm start
+
+### 单页应用示例
+
+dictionary-spa
+
 review系统
 字典进mongodb
 e-card
+
+https://docs.mongodb.com/manual/reference/connection-string/
+
+## 数据库设计
+
+https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1
+
+- 6 Rules of Thumb for MongoDB Schema Design:
+- Part 1: Basic modeling techniques
+  https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-1
+- Part 2: Referencing
+  https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-2
+
+- Part 3: Design recommendations  
+  https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design-part-3

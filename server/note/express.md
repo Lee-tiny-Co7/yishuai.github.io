@@ -232,3 +232,12 @@ app.use(express.static('public'))
 ## server允许CORS
 
 res.header('Access-Control-Allow-Origin', '*');
+
+## Handlebars
+
+const exphbs  = require('express-handlebars');
+...
+const app = express();
+const hbs = exphbs.create();
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');

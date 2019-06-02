@@ -1,0 +1,80 @@
+body{
+  background: #fdf5f5;
+  text-align: center;
+
+}
+
+#welcome{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#title{
+  font-size: 30pt;
+  font-family: 'Merriweather', serif;
+}
+
+#note{
+  font-size: 12pt;
+  font-family: 'Montserrat', serif;
+  margin: 40px;
+}
+
+#create{
+  border: 2px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 14pt;
+  font-family: 'Montserrat', sans-serif;
+  transition: .25s;
+  background: white;
+}
+
+#create:hover{
+  color: white;
+  background-color: black;
+}
+
+.inactive {
+  display: none !important;
+}
+
+#footer{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+#text{
+  height: calc(100vh - 200px);
+  width: calc(100%-40px)auto;
+  line-height: 1.5em;
+  font-size: 14pt;
+  font-family: 'Merriweather', serif;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+}
+
+#date{
+  font-size: 30pt;
+  justify-content: center;
+  text-decoration: underline;
+  margin: 30px;
+  font-family: 'Merriweather', serif;
+}
+
+#prompt{
+  font-family: 'Montserrat', serif;
+  font-size: 12pt;
+}
+
+#save{
+  bottom: 120%;
+}

@@ -1,0 +1,34 @@
+{
+  "collections": {
+    "peeps": [
+      {
+        "_id": 456,
+        "name": "Seymour Krelborn",
+        "email": "seymour@lsoh.com",
+        "comments": [
+          {
+            "comment": "Likes plants."
+          }
+        ]
+      },
+      {
+        "_id": 789,
+        "name": "Beyonce Knowles",
+        "email": "b@yonce.com"
+      },
+      {
+        "_id": 123,
+        "name": "Mister Mushnik",
+        "email": "mr@mushnik.com",
+        "comments": [
+          {
+            "comment": "Good businessman."
+          },
+          {
+            "comment": "Owns plant store."
+          }
+        ]
+      }
+    ]
+  }
+}
